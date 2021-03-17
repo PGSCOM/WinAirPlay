@@ -20,10 +20,11 @@
 #include <stddef.h>
 #include <cstring>
 #include <signal.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include <string>
 #include <vector>
 #include <fstream>
+#include <windows.h>
 
 #include "log.h"
 #include "lib/raop.h"
@@ -106,15 +107,15 @@ static void signal_handler(int sig) {
     }
 }
 
-static void init_signals(void) {
-    struct sigaction sigact;
-
-    sigact.sa_handler = signal_handler;
-    sigemptyset(&sigact.sa_mask);
-    sigact.sa_flags = 0;
-    sigaction(SIGINT, &sigact, NULL);
-    sigaction(SIGTERM, &sigact, NULL);
-}
+//static void init_signals(void) {
+//    struct sigaction sigact;
+//
+//    sigact.sa_handler = signal_handler;
+//    sigemptyset(&sigact.sa_mask);
+//    sigact.sa_flags = 0;
+//    sigaction(SIGINT, &sigact, NULL);
+//    sigaction(SIGTERM, &sigact, NULL);
+//}
 
 static int parse_hw_addr(std::string str, std::vector<char> &hw_addr) {
     for (int i = 0; i < str.length(); i += 3) {
@@ -177,7 +178,7 @@ void print_info(char *name) {
 }
 
 int main(int argc, char *argv[]) {
-    init_signals();
+    //init_signals();
     
     std::string server_name = DEFAULT_NAME;
     std::vector<char> server_hw_addr = DEFAULT_HW_ADDRESS;
@@ -272,7 +273,7 @@ int main(int argc, char *argv[]) {
 
     running = true;
     while (running) {
-        sleep(1);
+        Sleep(1);
     }
 
     LOGI("Stopping...");

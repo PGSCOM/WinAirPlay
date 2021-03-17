@@ -12,15 +12,16 @@
  * Lesser General Public License for more details.
  */
 
+#include <WinSock2.h>
 #include <time.h>
-#include <netinet/in.h>
+//#include <netinet/in.h>
 #include "byteutils.h"
 
-#ifndef htonll
-#include <endian.h>
-#define htonll(x) htobe64(x)
-#define ntohll(x) be64toh(x)
-#endif
+//#ifndef htonll
+//#include <endian.h>
+//#define htonll(x) htobe64(x)
+//#define ntohll(x) be64toh(x)
+//#endif
 
 // The functions in this file assume a little endian cpu architecture!
 

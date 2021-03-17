@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\byteutils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\crypto.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\dnssd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\fairplay_playfair.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\http_request.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\http_response.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\httpd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\logger.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\mirror_buffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\netutils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\pairing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_buffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_ntp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_rtp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_rtp_mirror.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\utils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D15DEA82-83E8-34E5-B714-8F71BE7A1AA3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

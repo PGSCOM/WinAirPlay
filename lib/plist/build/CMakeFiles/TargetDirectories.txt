@@ -1,0 +1,5 @@
+C:/workdir/1223/RPiPlay/lib/plist/build/CMakeFiles/plist.dir
+C:/workdir/1223/RPiPlay/lib/plist/build/CMakeFiles/plist++.dir
+C:/workdir/1223/RPiPlay/lib/plist/build/CMakeFiles/INSTALL.dir
+C:/workdir/1223/RPiPlay/lib/plist/build/CMakeFiles/ALL_BUILD.dir
+C:/workdir/1223/RPiPlay/lib/plist/build/CMakeFiles/ZERO_CHECK.dir

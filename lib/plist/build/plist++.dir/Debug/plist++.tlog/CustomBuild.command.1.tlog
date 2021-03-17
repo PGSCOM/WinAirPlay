@@ -1,0 +1,10 @@
+^C:\WORKDIR\1223\RPIPLAY\LIB\PLIST\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/workdir/1223/RPiPlay/lib/plist -BC:/workdir/1223/RPiPlay/lib/plist/build --check-stamp-file C:/workdir/1223/RPiPlay/lib/plist/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

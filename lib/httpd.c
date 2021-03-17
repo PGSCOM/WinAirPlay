@@ -379,6 +379,7 @@ httpd_start(httpd_t *httpd, unsigned short *port)
     assert(httpd);
     assert(port);
 
+    MUTEX_CREATE(httpd->run_mutex);
     MUTEX_LOCK(httpd->run_mutex);
     if (httpd->running || !httpd->joined) {
         MUTEX_UNLOCK(httpd->run_mutex);

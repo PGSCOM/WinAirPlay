@@ -24,7 +24,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-#include <unistd.h>
+//#include <unistd.h>
 
 typedef struct video_renderer_dummy_s {
     video_renderer_t base;
@@ -44,13 +44,16 @@ video_renderer_t *video_renderer_dummy_init(logger_t *logger, video_renderer_con
     return &renderer->base;
 }
 
-static void video_renderer_dummy_start(video_renderer_t *renderer) {
+static void video_renderer_dummy_start(video_renderer_t *renderer) 
+{
 }
 
-static void video_renderer_dummy_render_buffer(video_renderer_t *renderer, raop_ntp_t *ntp, unsigned char *data, int data_len, uint64_t pts, int type) {
+static void video_renderer_dummy_render_buffer(video_renderer_t *renderer, raop_ntp_t *ntp, unsigned char *data, int data_len, uint64_t pts, int type)
+{
 }
 
-static void video_renderer_dummy_flush(video_renderer_t *renderer) {
+static void video_renderer_dummy_flush(video_renderer_t *renderer) 
+{
 }
 
 static void video_renderer_dummy_destroy(video_renderer_t *renderer) {

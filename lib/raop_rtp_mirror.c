@@ -20,7 +20,7 @@
 #include <assert.h>
 #include <errno.h>
 #include <stdbool.h>
-#include <netinet/tcp.h>
+//#include <netinet/tcp.h>
 
 #include "raop.h"
 #include "netutils.h"
@@ -225,15 +225,15 @@ raop_rtp_mirror_thread(void *arg)
                 logger_log(raop_rtp_mirror->logger, LOGGER_WARNING, "raop_rtp_mirror could not set stream socket keepalive %d %s", errno, strerror(errno));
             }
             option = 60;
-            if (setsockopt(stream_fd, SOL_TCP, TCP_KEEPIDLE, &option, sizeof(option)) < 0) {
+            if (setsockopt(stream_fd, IPPROTO_TCP, TCP_KEEPIDLE, &option, sizeof(option)) < 0) {
                 logger_log(raop_rtp_mirror->logger, LOGGER_WARNING, "raop_rtp_mirror could not set stream socket keepalive time %d %s", errno, strerror(errno));
             }
             option = 10;
-            if (setsockopt(stream_fd, SOL_TCP, TCP_KEEPINTVL, &option, sizeof(option)) < 0) {
+            if (setsockopt(stream_fd, IPPROTO_TCP, TCP_KEEPINTVL, &option, sizeof(option)) < 0) {
                 logger_log(raop_rtp_mirror->logger, LOGGER_WARNING, "raop_rtp_mirror could not set stream socket keepalive interval %d %s", errno, strerror(errno));
             }
             option = 6;
-            if (setsockopt(stream_fd, SOL_TCP, TCP_KEEPCNT, &option, sizeof(option)) < 0) {
+            if (setsockopt(stream_fd, IPPROTO_TCP, TCP_KEEPCNT, &option, sizeof(option)) < 0) {
                 logger_log(raop_rtp_mirror->logger, LOGGER_WARNING, "raop_rtp_mirror could not set stream socket keepalive probes %d %s", errno, strerror(errno));
             }
             readstart = 0;
@@ -375,7 +375,7 @@ raop_rtp_mirror_thread(void *arg)
                 if (h264.sps_size + h264.pps_size < 102400) {
                     // Copy the sps and pps into a buffer to hand to the decoder
                     int sps_pps_len = (h264.sps_size + h264.pps_size) + 8;
-                    unsigned char sps_pps[sps_pps_len];
+                    unsigned char *sps_pps = malloc(sps_pps_len);
                     sps_pps[0] = 0;
                     sps_pps[1] = 0;
                     sps_pps[2] = 0;
@@ -397,6 +397,9 @@ raop_rtp_mirror_thread(void *arg)
                     h264_data.frame_type = 0;
                     h264_data.pts = 0;
                     raop_rtp_mirror->callbacks.video_process(raop_rtp_mirror->callbacks.cls, raop_rtp_mirror->ntp, &h264_data);
+
+                    if (sps_pps)
+                      free(sps_pps);
                 }
                 free(h264.picture_parameter_set);
                 free(h264.sequence_parameter_set);

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\workdir\1223\RPiPlay\lib\plist\build\CMakeFiles\65ab17011400991dcf97ac3eb9e8bd89\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E63918B4-E1DE-39B7-B5FC-9AF0BDADBA5C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

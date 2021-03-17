@@ -107,7 +107,7 @@ amm-info@iis.fraunhofer.de
 
 #if defined(__GNUC__) && defined(__mips__)
 
-#if defined(__mips_dsp) && !defined(__mips16)
+#if defined(__mips_dsp)
 #define FUNCTION_fixabs_D
 #define FUNCTION_fixabs_I
 #define FUNCTION_fixabs_S
