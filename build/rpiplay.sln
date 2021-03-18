@@ -70,6 +70,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rpiplay", "rpiplay.vcxproj"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pthreads_lib", "lib\pthreads\build.vs\pthreads_lib\pthreads_lib.vcxproj", "{666D916A-45A5-4069-B59E-2AA7C8ABF921}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Decoder", "..\..\Windows-classic-samples\Samples\Win7Samples\multimedia\mediafoundation\Decoder\Decoder.vcxproj", "{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -214,6 +216,22 @@ Global
 		{666D916A-45A5-4069-B59E-2AA7C8ABF921}.RelWithDebInfo|x64.Build.0 = Release|x64
 		{666D916A-45A5-4069-B59E-2AA7C8ABF921}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
 		{666D916A-45A5-4069-B59E-2AA7C8ABF921}.RelWithDebInfo|x86.Build.0 = Release|Win32
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.Debug|x64.ActiveCfg = Debug|x64
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.Debug|x64.Build.0 = Debug|x64
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.Debug|x86.ActiveCfg = Debug|Win32
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.Debug|x86.Build.0 = Debug|Win32
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.MinSizeRel|x64.ActiveCfg = Debug|x64
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.MinSizeRel|x64.Build.0 = Debug|x64
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.MinSizeRel|x86.ActiveCfg = Debug|Win32
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.MinSizeRel|x86.Build.0 = Debug|Win32
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.Release|x64.ActiveCfg = Release|x64
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.Release|x64.Build.0 = Release|x64
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.Release|x86.ActiveCfg = Release|Win32
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.Release|x86.Build.0 = Release|Win32
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.RelWithDebInfo|x64.ActiveCfg = Release|x64
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.RelWithDebInfo|x64.Build.0 = Release|x64
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
+		{E49577EF-95D8-4C72-8E29-FE9C8D93A97A}.RelWithDebInfo|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -78,7 +78,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;pthreads\lib\x64\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\playfair;$(SolutionDir)..\lib\llhttp;$(SolutionDir)..\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;pthreads\lib\x64\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>

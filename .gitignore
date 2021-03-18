@@ -10,3 +10,15 @@
 /captures
 .externalNativeBuild
 /lib/x64/
+/build/lib/airplay.dir
+/build/lib/llhttp/llhttp.dir
+/build/lib/playfair/playfair.dir
+/build/lib/plist/plist.dir
+/build/lib/plist/plist++.dir
+/build/out
+/build/renderers/Debug
+/build/renderers/renderers.dir
+/build/rpiplay.dir
+/build/x64
+/build/UpgradeLog.htm
+/build/Debug/rpiplay.pdb
