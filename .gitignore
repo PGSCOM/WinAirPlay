@@ -22,3 +22,5 @@
 /build/x64
 /build/UpgradeLog.htm
 /build/Debug/rpiplay.pdb
+/mfDecoder/x64
+/decoder/x64

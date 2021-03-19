@@ -316,6 +316,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\rpiplay.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\decoder\decoder.vcxproj">
+      <Project>{23aa7755-009c-4ba4-b244-fb886a688070}</Project>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\ZERO_CHECK.vcxproj">
       <Project>{C12589E6-7E1D-362B-AB78-5BE1675F525D}</Project>
       <Name>ZERO_CHECK</Name>
