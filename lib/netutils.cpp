@@ -11,6 +11,9 @@
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  *  Lesser General Public License for more details.
  */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <stdlib.h>
 #include <string.h>
@@ -53,7 +56,7 @@ unsigned char *
 netutils_get_address(void *sockaddr, int *length)
 {
     unsigned char ipv4_prefix[] = { 0,0,0,0,0,0,0,0,0,0,255,255 };
-    struct sockaddr *address = sockaddr;
+    struct sockaddr *address = static_cast<struct sockaddr*>(sockaddr);
 
     assert(address);
     assert(length);
@@ -101,7 +104,7 @@ netutils_init_socket(unsigned short *port, int use_ipv6, int use_udp)
         goto cleanup;
     }
 
-    ret = setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR, &reuseaddr, sizeof (reuseaddr));
+    ret = setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char FAR*>(&reuseaddr), sizeof(reuseaddr));
     if (ret == -1) {
         goto cleanup;
     }
@@ -201,3 +204,7 @@ netutils_parse_address(int family, const char *src, void *dst, int dstlen)
     freeaddrinfo(result);
     return length;
 }
+
+#ifdef __cplusplus
+}
+#endif

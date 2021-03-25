@@ -140,7 +140,7 @@ raop_rtp_init(logger_t *logger, raop_callbacks_t *callbacks, raop_ntp_t *ntp, co
     assert(logger);
     assert(callbacks);
 
-    raop_rtp = calloc(1, sizeof(raop_rtp_t));
+    raop_rtp = static_cast<raop_rtp_t*>(calloc(1, sizeof(raop_rtp_t)));
     if (!raop_rtp) {
         return NULL;
     }
@@ -193,7 +193,7 @@ raop_rtp_destroy(raop_rtp_t *raop_rtp)
 static int
 raop_rtp_resend_callback(void *opaque, unsigned short seqnum, unsigned short count)
 {
-    raop_rtp_t *raop_rtp = opaque;
+    raop_rtp_t *raop_rtp = static_cast<raop_rtp_t*>(opaque);
     unsigned char packet[8];
     unsigned short ourseqnum;
     struct sockaddr *addr;
@@ -390,7 +390,7 @@ uint64_t raop_rtp_convert_rtp_time(raop_rtp_t *raop_rtp, uint32_t rtp_time) {
 static THREAD_RETVAL
 raop_rtp_thread_udp(void *arg)
 {
-    raop_rtp_t *raop_rtp = arg;
+    raop_rtp_t *raop_rtp = static_cast<raop_rtp_t*>(arg);
     unsigned char packet[RAOP_PACKET_LEN];
     unsigned int packetlen;
     struct sockaddr_storage saddr;
@@ -494,7 +494,7 @@ raop_rtp_thread_udp(void *arg)
                 while ((payload = raop_buffer_dequeue(raop_rtp->buffer, &payload_size, &timestamp, no_resend))) {
                     aac_decode_struct aac_data;
                     aac_data.data_len = payload_size;
-                    aac_data.data = payload;
+                    aac_data.data = static_cast<unsigned char*>(payload);
                     aac_data.pts = timestamp;
                     raop_rtp->callbacks.audio_process(raop_rtp->callbacks.cls, raop_rtp->ntp, &aac_data);
                     free(payload);
@@ -584,7 +584,7 @@ raop_rtp_set_metadata(raop_rtp_t *raop_rtp, const char *data, int datalen)
     if (datalen <= 0) {
         return;
     }
-    metadata = malloc(datalen);
+    metadata = static_cast<unsigned char*>(malloc(datalen));
     assert(metadata);
     memcpy(metadata, data, datalen);
 
@@ -605,7 +605,7 @@ raop_rtp_set_coverart(raop_rtp_t *raop_rtp, const char *data, int datalen)
     if (datalen <= 0) {
         return;
     }
-    coverart = malloc(datalen);
+    coverart = static_cast<unsigned char*>(malloc(datalen));
     assert(coverart);
     memcpy(coverart, data, datalen);
 

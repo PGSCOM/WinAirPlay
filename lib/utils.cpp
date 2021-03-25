@@ -11,6 +11,9 @@
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  *  Lesser General Public License for more details.
  */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -58,7 +61,7 @@ utils_read_file(char **dst, const char *filename)
     fseek(stream, 0, SEEK_SET);
 
     /* Allocate one extra byte for zero */
-    buffer = malloc(filesize+1);
+    buffer = static_cast<char*>(malloc(filesize+1));
     if (!buffer) {
         fclose(stream);
         return -2;
@@ -146,7 +149,7 @@ utils_hwaddr_airplay(char *str, int strlen, const char *hwaddr, int hwaddrlen)
 char *utils_parse_hex(const char *str, int str_len, int *data_len) {
     assert(str_len % 2 == 0);
 
-    char *data = malloc(str_len / 2);
+    char *data = static_cast<char*>(malloc(str_len / 2));
 
     for (int i = 0; i < (str_len / 2); i++) {
         char c_1 = str[i * 2];
@@ -179,3 +182,7 @@ char *utils_parse_hex(const char *str, int str_len, int *data_len) {
     *data_len = (str_len / 2);
     return data;
 }
+
+#ifdef __cplusplus
+}
+#endif

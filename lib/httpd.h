@@ -15,6 +15,10 @@
 #ifndef HTTPD_H
 #define HTTPD_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "logger.h"
 #include "http_request.h"
 #include "http_response.h"
@@ -39,5 +43,7 @@ void httpd_stop(httpd_t *httpd);
 
 void httpd_destroy(httpd_t *httpd);
 
-
+#ifdef __cplusplus
+}
+#endif
 #endif

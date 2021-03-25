@@ -1,3 +1,8 @@
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
@@ -24,7 +29,7 @@ fairplay_init(logger_t *logger)
 {
     fairplay_t *fp;
 
-    fp = calloc(1, sizeof(fairplay_t));
+    fp = static_cast<fairplay_t*>(calloc(1, sizeof(fairplay_t)));
     if (!fp) {
         return NULL;
     }
@@ -85,3 +90,7 @@ fairplay_destroy(fairplay_t *fp)
 {
     free(fp);
 }
+
+#ifdef __cplusplus
+}
+#endif

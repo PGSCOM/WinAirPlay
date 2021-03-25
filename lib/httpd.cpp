@@ -11,6 +11,9 @@
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  *  Lesser General Public License for more details.
  */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <stdlib.h>
 #include <string.h>
@@ -61,13 +64,13 @@ httpd_init(logger_t *logger, httpd_callbacks_t *callbacks, int max_connections)
     assert(max_connections > 0);
 
     /* Allocate the httpd_t structure */
-    httpd = calloc(1, sizeof(httpd_t));
+    httpd = static_cast<httpd_t*>(calloc(1, sizeof(httpd_t)));
     if (!httpd) {
         return NULL;
     }
 
     httpd->max_connections = max_connections;
-    httpd->connections = calloc(max_connections, sizeof(http_connection_t));
+    httpd->connections = static_cast<http_connection_t*>(calloc(max_connections, sizeof(http_connection_t)));
     if (!httpd->connections) {
         free(httpd);
         return NULL;
@@ -184,7 +187,7 @@ httpd_remove_connection(httpd_t *httpd, http_connection_t *connection)
 static THREAD_RETVAL
 httpd_thread(void *arg)
 {
-    httpd_t *httpd = arg;
+    httpd_t *httpd = static_cast<httpd_t*>(arg);
     char buffer[1024];
     int i;
 
@@ -456,4 +459,8 @@ httpd_stop(httpd_t *httpd)
     httpd->joined = 1;
     MUTEX_UNLOCK(httpd->run_mutex);
 }
+
+#ifdef __cplusplus
+}
+#endif
 

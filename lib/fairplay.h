@@ -1,6 +1,10 @@
 #ifndef FAIRPLAY_H
 #define FAIRPLAY_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "logger.h"
 
 typedef struct fairplay_s fairplay_t;
@@ -11,4 +15,7 @@ int fairplay_handshake(fairplay_t *fp, const unsigned char req[164], unsigned ch
 int fairplay_decrypt(fairplay_t *fp, const unsigned char input[72], unsigned char output[16]);
 void fairplay_destroy(fairplay_t *fp);
 
+#ifdef __cplusplus
+}
+#endif
 #endif

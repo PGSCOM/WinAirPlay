@@ -14,6 +14,9 @@
 
 #ifndef MIRROR_BUFFER_H
 #define MIRROR_BUFFER_H
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <stdint.h>
 #include "logger.h"
@@ -27,4 +30,8 @@ mirror_buffer_t *mirror_buffer_init( logger_t *logger,
 void mirror_buffer_init_aes(mirror_buffer_t *mirror_buffer, uint64_t streamConnectionID);
 void mirror_buffer_decrypt(mirror_buffer_t *raop_mirror, unsigned char* input, unsigned char* output, int datalen);
 void mirror_buffer_destroy(mirror_buffer_t *mirror_buffer);
+
+#ifdef __cplusplus
+}
+#endif
 #endif //MIRROR_BUFFER_H

@@ -48,7 +48,7 @@ void handle_error(const char* location) {
 }
 
 aes_ctx_t *aes_init(const uint8_t *key, const uint8_t *iv, const EVP_CIPHER *type, aes_direction_t direction) {
-    aes_ctx_t *ctx = malloc(sizeof(aes_ctx_t));
+    aes_ctx_t *ctx = static_cast<aes_ctx_t*>(malloc(sizeof(aes_ctx_t)));
     assert(ctx != NULL);
     ctx->cipher_ctx = EVP_CIPHER_CTX_new();
     assert(ctx->cipher_ctx != NULL);
@@ -175,7 +175,7 @@ x25519_key_t *x25519_key_generate(void) {
     x25519_key_t *key;
     EVP_PKEY_CTX *pctx;
 
-    key = calloc(1, sizeof(x25519_key_t));
+    key = static_cast<x25519_key_t*>(calloc(1, sizeof(x25519_key_t)));
     assert(key);
 
     pctx = EVP_PKEY_CTX_new_id(EVP_PKEY_X25519, NULL);
@@ -196,7 +196,7 @@ x25519_key_t *x25519_key_generate(void) {
 x25519_key_t *x25519_key_from_raw(const unsigned char data[X25519_KEY_SIZE]) {
     x25519_key_t *key;
 
-    key = malloc(sizeof(x25519_key_t));
+    key = static_cast<x25519_key_t*>(malloc(sizeof(x25519_key_t)));
     assert(key);
 
     key->pkey = EVP_PKEY_new_raw_public_key(EVP_PKEY_X25519, NULL, data, X25519_KEY_SIZE);
@@ -209,7 +209,8 @@ x25519_key_t *x25519_key_from_raw(const unsigned char data[X25519_KEY_SIZE]) {
 
 void x25519_key_get_raw(unsigned char data[X25519_KEY_SIZE], const x25519_key_t *key) {
     assert(key);
-    if (!EVP_PKEY_get_raw_public_key(key->pkey, data, &(size_t) {X25519_KEY_SIZE})) {
+    size_t len = X25519_KEY_SIZE;
+    if (!EVP_PKEY_get_raw_public_key(key->pkey, data, &len)) {
         handle_error(__func__);
     }
 }
@@ -237,7 +238,8 @@ void x25519_derive_secret(unsigned char secret[X25519_KEY_SIZE], const x25519_ke
     if (!EVP_PKEY_derive_set_peer(pctx, theirs->pkey)) {
         handle_error(__func__);
     }
-    if (!EVP_PKEY_derive(pctx, secret, &(size_t) {X25519_KEY_SIZE})) {
+    size_t len = X25519_KEY_SIZE;
+    if (!EVP_PKEY_derive(pctx, secret, &len)) {
         handle_error(__func__);
     }
     EVP_PKEY_CTX_free(pctx);
@@ -253,7 +255,7 @@ ed25519_key_t *ed25519_key_generate(void) {
     ed25519_key_t *key;
     EVP_PKEY_CTX *pctx;
 
-    key = calloc(1, sizeof(ed25519_key_t));
+    key = static_cast<ed25519_key_t*>(calloc(1, sizeof(ed25519_key_t)));
     assert(key);
 
     pctx = EVP_PKEY_CTX_new_id(EVP_PKEY_ED25519, NULL);
@@ -274,7 +276,7 @@ ed25519_key_t *ed25519_key_generate(void) {
 ed25519_key_t *ed25519_key_from_raw(const unsigned char data[ED25519_KEY_SIZE]) {
     ed25519_key_t *key;
 
-    key = malloc(sizeof(ed25519_key_t));
+    key = static_cast<ed25519_key_t*>(malloc(sizeof(ed25519_key_t)));
     assert(key);
 
     key->pkey = EVP_PKEY_new_raw_public_key(EVP_PKEY_ED25519, NULL, data, ED25519_KEY_SIZE);
@@ -287,7 +289,8 @@ ed25519_key_t *ed25519_key_from_raw(const unsigned char data[ED25519_KEY_SIZE]) 
 
 void ed25519_key_get_raw(unsigned char data[ED25519_KEY_SIZE], const ed25519_key_t *key) {
     assert(key);
-    if (!EVP_PKEY_get_raw_public_key(key->pkey, data, &(size_t) {ED25519_KEY_SIZE})) {
+    size_t len = ED25519_KEY_SIZE;
+    if (!EVP_PKEY_get_raw_public_key(key->pkey, data, &len)) {
         handle_error(__func__);
     }
 }
@@ -297,7 +300,7 @@ ed25519_key_t *ed25519_key_copy(const ed25519_key_t *key) {
 
     assert(key);
 
-    new_key = malloc(sizeof(ed25519_key_t));
+    new_key = static_cast<ed25519_key_t*>(malloc(sizeof(ed25519_key_t)));
     assert(new_key);
 
     new_key->pkey = key->pkey;
@@ -368,7 +371,7 @@ struct sha_ctx_s {
 };
 
 sha_ctx_t *sha_init() {
-    sha_ctx_t *ctx = malloc(sizeof(sha_ctx_t));
+    sha_ctx_t *ctx = static_cast<sha_ctx_t*>(malloc(sizeof(sha_ctx_t)));
     assert(ctx != NULL);
     ctx->digest_ctx = EVP_MD_CTX_new();
     assert(ctx->digest_ctx != NULL);

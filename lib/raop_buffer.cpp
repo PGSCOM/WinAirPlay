@@ -96,7 +96,7 @@ raop_buffer_init(logger_t *logger,
     assert(aeskey);
     assert(aesiv);
     assert(ecdh_secret);
-    raop_buffer = calloc(1, sizeof(raop_buffer_t));
+    raop_buffer = static_cast<raop_buffer_t*>(calloc(1, sizeof(raop_buffer_t)));
     if (!raop_buffer) {
         return NULL;
     }
@@ -235,7 +235,7 @@ raop_buffer_enqueue(raop_buffer_t *raop_buffer, unsigned char *data, unsigned sh
     entry->filled = 1;
 
     entry->payload_data = malloc(payload_size);
-    int decrypt_ret = raop_buffer_decrypt(raop_buffer, data, entry->payload_data, payload_size, &entry->payload_size);
+    int decrypt_ret = raop_buffer_decrypt(raop_buffer, data, static_cast<unsigned char*>(entry->payload_data), payload_size, &entry->payload_size);
     assert(decrypt_ret >= 0);
     assert(entry->payload_size <= payload_size);
 

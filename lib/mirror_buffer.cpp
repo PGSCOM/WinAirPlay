@@ -90,7 +90,7 @@ mirror_buffer_init(logger_t *logger,
     mirror_buffer_t *mirror_buffer;
     assert(aeskey);
     assert(ecdh_secret);
-    mirror_buffer = calloc(1, sizeof(mirror_buffer_t));
+    mirror_buffer = static_cast<mirror_buffer_t*>(calloc(1, sizeof(mirror_buffer_t)));
     if (!mirror_buffer) {
         return NULL;
     }

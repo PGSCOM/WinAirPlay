@@ -11,6 +11,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <WinSock2.h>
 #include <time.h>
@@ -104,4 +107,8 @@ void byteutils_put_ntp_timestamp(unsigned char *b, int offset, uint64_t us_since
     byteutils_put_int(b, offset, htonl(seconds));
     byteutils_put_int(b, offset + 4, htonl(fraction));
 }
+
+#ifdef __cplusplus
+}
+#endif
 

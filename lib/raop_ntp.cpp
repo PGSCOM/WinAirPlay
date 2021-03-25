@@ -14,6 +14,9 @@
  */
 
 // Some of the code in here comes from https://github.com/juhovh/shairplay/pull/25/files
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <assert.h>
 #include <stdlib.h>
@@ -210,7 +213,7 @@ raop_ntp_t *raop_ntp_init(logger_t *logger, const unsigned char *remote_addr, in
 
     assert(logger);
 
-    raop_ntp = calloc(1, sizeof(raop_ntp_t));
+    raop_ntp = static_cast<raop_ntp_t*>(calloc(1, sizeof(raop_ntp_t)));
     if (!raop_ntp) {
         return NULL;
     }
@@ -283,7 +286,7 @@ raop_ntp_init_socket(raop_ntp_t *raop_ntp, int use_ipv6)
     struct timeval tv;
     tv.tv_sec = 0;
     tv.tv_usec = 300000;
-    if (setsockopt(tsock, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv)) < 0) {
+    if (setsockopt(tsock, SOL_SOCKET, SO_RCVTIMEO, reinterpret_cast<const char FAR*>(&tv), sizeof(tv)) < 0) {
         goto sockets_cleanup;
     }
 
@@ -320,7 +323,7 @@ raop_ntp_flush_socket(int fd)
 static THREAD_RETVAL
 raop_ntp_thread(void *arg)
 {
-    raop_ntp_t *raop_ntp = arg;
+    raop_ntp_t *raop_ntp = static_cast<raop_ntp_t*>(arg);
     assert(raop_ntp);
     unsigned char response[128];
     int response_len;
@@ -511,7 +514,7 @@ uint64_t raop_ntp_timestamp_to_micro_seconds(uint64_t ntp_timestamp, bool accoun
  */
 uint64_t raop_ntp_get_local_time(raop_ntp_t *raop_ntp) {
     struct timespec time;
-    clock_gettime(0, &time);
+    clock_gettime(0, reinterpret_cast<struct timeval*>(&time));
     return (uint64_t)time.tv_sec * 1000000L + (uint64_t)(time.tv_nsec / 1000);
 }
 
@@ -544,3 +547,7 @@ uint64_t raop_ntp_convert_local_time(raop_ntp_t *raop_ntp, uint64_t local_time) 
     MUTEX_UNLOCK(raop_ntp->sync_params_mutex);
     return (uint64_t) ((int64_t) local_time) + ((int64_t) offset);
 }
+
+#ifdef __cplusplus
+}
+#endif

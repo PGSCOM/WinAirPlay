@@ -68,12 +68,12 @@ typedef struct raop_conn_s raop_conn_t;
 
 static void *
 conn_init(void *opaque, unsigned char *local, int locallen, unsigned char *remote, int remotelen) {
-    raop_t *raop = opaque;
+    raop_t *raop = static_cast<raop_t*>(opaque);
     raop_conn_t *conn;
 
     assert(raop);
 
-    conn = calloc(1, sizeof(raop_conn_t));
+    conn = static_cast<raop_conn_t*>(calloc(1, sizeof(raop_conn_t)));
     if (!conn) {
         return NULL;
     }
@@ -114,11 +114,11 @@ conn_init(void *opaque, unsigned char *local, int locallen, unsigned char *remot
                    remote[8], remote[9], remote[10], remote[11], remote[12], remote[13], remote[14], remote[15]);
     }
 
-    conn->local = malloc(locallen);
+    conn->local = static_cast<unsigned char*>(malloc(locallen));
     assert(conn->local);
     memcpy(conn->local, local, locallen);
 
-    conn->remote = malloc(remotelen);
+    conn->remote = static_cast<unsigned char*>(malloc(remotelen));
     assert(conn->remote);
     memcpy(conn->remote, remote, remotelen);
 
@@ -134,7 +134,7 @@ conn_init(void *opaque, unsigned char *local, int locallen, unsigned char *remot
 
 static void
 conn_request(void *ptr, http_request_t *request, http_response_t **response) {
-    raop_conn_t *conn = ptr;
+    raop_conn_t *conn = static_cast<raop_conn_t*>(ptr);
     logger_log(conn->raop->logger, LOGGER_DEBUG, "conn_request");
     const char *method;
     const char *url;
@@ -220,7 +220,7 @@ conn_request(void *ptr, http_request_t *request, http_response_t **response) {
 
 static void
 conn_destroy(void *ptr) {
-    raop_conn_t *conn = ptr;
+    raop_conn_t *conn = static_cast<raop_conn_t*>(ptr);
 
     logger_log(conn->raop->logger, LOGGER_INFO, "Destroying connection");
 
@@ -272,7 +272,7 @@ raop_init(int max_clients, raop_callbacks_t *callbacks) {
     }
 
     /* Allocate the raop_t structure */
-    raop = calloc(1, sizeof(raop_t));
+    raop = static_cast<raop_t*>(calloc(1, sizeof(raop_t)));
     if (!raop) {
         return NULL;
     }

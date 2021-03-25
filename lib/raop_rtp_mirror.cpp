@@ -30,6 +30,9 @@
 #include "mirror_buffer.h"
 #include "stream.h"
 
+#include "video_error_codes.h"
+#include "h264_decoder_mf.h"
+
 
 struct h264codec_s {
     unsigned char compatibility;
@@ -109,7 +112,7 @@ raop_rtp_mirror_t *raop_rtp_mirror_init(logger_t *logger, raop_callbacks_t *call
     assert(logger);
     assert(callbacks);
 
-    raop_rtp_mirror = calloc(1, sizeof(raop_rtp_mirror_t));
+    raop_rtp_mirror = static_cast<raop_rtp_mirror_t*>(calloc(1, sizeof(raop_rtp_mirror_t)));
     if (!raop_rtp_mirror) {
         return NULL;
     }
@@ -140,7 +143,7 @@ raop_rtp_init_mirror_aes(raop_rtp_mirror_t *raop_rtp_mirror, uint64_t streamConn
     mirror_buffer_init_aes(raop_rtp_mirror->buffer, streamConnectionID);
 }
 
-//#define DUMP_H264
+#define DUMP_H264
 
 #define RAOP_PACKET_LEN 32768
 /**
@@ -149,7 +152,7 @@ raop_rtp_init_mirror_aes(raop_rtp_mirror_t *raop_rtp_mirror, uint64_t streamConn
 static THREAD_RETVAL
 raop_rtp_mirror_thread(void *arg)
 {
-    raop_rtp_mirror_t *raop_rtp_mirror = arg;
+    raop_rtp_mirror_t *raop_rtp_mirror = static_cast<raop_rtp_mirror_t*>(arg);
     assert(raop_rtp_mirror);
 
     int stream_fd = -1;
@@ -158,12 +161,15 @@ raop_rtp_mirror_thread(void *arg)
     unsigned char* payload = NULL;
     unsigned int readstart = 0;
 
+    std::unique_ptr<owt::base::H264DecoderMFImpl> h264Decoder = owt::base::MFH264Decoder::Create();
+    int res = h264Decoder->InitDecode(680, 972, 25, 1);
+
 #ifdef DUMP_H264
     // C decrypted
-    FILE* file = fopen("/home/pi/Airplay.h264", "wb");
+    FILE* file = fopen("Airplay.h264", "wb");
     // Encrypted source file
-    FILE* file_source = fopen("/home/pi/Airplay.source", "wb");
-    FILE* file_len = fopen("/home/pi/Airplay.len", "wb");
+    FILE* file_source = fopen("Airplay.source", "wb");
+    FILE* file_len = fopen("Airplay.len", "wb");
 #endif
 
     while (1) {
@@ -215,25 +221,25 @@ raop_rtp_mirror_thread(void *arg)
             struct timeval tv;
             tv.tv_sec = 0;
             tv.tv_usec = 5000;
-            if (setsockopt(stream_fd, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv)) < 0) {
+            if (setsockopt(stream_fd, SOL_SOCKET, SO_RCVTIMEO, reinterpret_cast<const char*>(&tv), sizeof(tv)) < 0) {
                 logger_log(raop_rtp_mirror->logger, LOGGER_ERR, "raop_rtp_mirror could not set stream socket timeout %d %s", errno, strerror(errno));
                 break;
             }
             int option;
             option = 1;
-            if (setsockopt(stream_fd, SOL_SOCKET, SO_KEEPALIVE, &option, sizeof(option)) < 0) {
+            if (setsockopt(stream_fd, SOL_SOCKET, SO_KEEPALIVE, reinterpret_cast<const char*>(&option), sizeof(option)) < 0) {
                 logger_log(raop_rtp_mirror->logger, LOGGER_WARNING, "raop_rtp_mirror could not set stream socket keepalive %d %s", errno, strerror(errno));
             }
             option = 60;
-            if (setsockopt(stream_fd, IPPROTO_TCP, TCP_KEEPIDLE, &option, sizeof(option)) < 0) {
+            if (setsockopt(stream_fd, IPPROTO_TCP, TCP_KEEPIDLE, reinterpret_cast<const char*>(&option), sizeof(option)) < 0) {
                 logger_log(raop_rtp_mirror->logger, LOGGER_WARNING, "raop_rtp_mirror could not set stream socket keepalive time %d %s", errno, strerror(errno));
             }
             option = 10;
-            if (setsockopt(stream_fd, IPPROTO_TCP, TCP_KEEPINTVL, &option, sizeof(option)) < 0) {
+            if (setsockopt(stream_fd, IPPROTO_TCP, TCP_KEEPINTVL, reinterpret_cast<const char*>(&option), sizeof(option)) < 0) {
                 logger_log(raop_rtp_mirror->logger, LOGGER_WARNING, "raop_rtp_mirror could not set stream socket keepalive interval %d %s", errno, strerror(errno));
             }
             option = 6;
-            if (setsockopt(stream_fd, IPPROTO_TCP, TCP_KEEPCNT, &option, sizeof(option)) < 0) {
+            if (setsockopt(stream_fd, IPPROTO_TCP, TCP_KEEPCNT, reinterpret_cast<const char*>(&option), sizeof(option)) < 0) {
                 logger_log(raop_rtp_mirror->logger, LOGGER_WARNING, "raop_rtp_mirror could not set stream socket keepalive probes %d %s", errno, strerror(errno));
             }
             readstart = 0;
@@ -243,7 +249,7 @@ raop_rtp_mirror_thread(void *arg)
 
             // The first 128 bytes are some kind of header for the payload that follows
             while (payload == NULL && readstart < 128) {
-                ret = recv(stream_fd, packet + readstart, 128 - readstart, 0);
+                ret = recv(stream_fd, reinterpret_cast<char*>(packet + readstart), 128 - readstart, 0);
                 if (ret <= 0) break;
                 readstart = readstart + ret;
             }
@@ -264,13 +270,13 @@ raop_rtp_mirror_thread(void *arg)
             unsigned short payload_option = byteutils_get_short(packet, 6);
 
             if (payload == NULL) {
-                payload = malloc(payload_size);
+                payload = static_cast<unsigned char*>(malloc(payload_size));
                 readstart = 0;
             }
 
             while (readstart < payload_size) {
                 // Payload data
-                ret = recv(stream_fd, payload + readstart, payload_size - readstart, 0);
+                ret = recv(stream_fd, reinterpret_cast<char*>(payload + readstart), payload_size - readstart, 0);
                 if (ret <= 0) break;
                 readstart = readstart + ret;
             }
@@ -305,7 +311,7 @@ raop_rtp_mirror_thread(void *arg)
 #endif
 
                 // Decrypt data
-                unsigned char* payload_decrypted = malloc(payload_size);
+                unsigned char* payload_decrypted = static_cast<unsigned char*>(malloc(payload_size));
                 mirror_buffer_decrypt(raop_rtp_mirror->buffer, payload, payload_decrypted, payload_size);
 
                 int nalu_type = payload[4] & 0x1f;
@@ -341,6 +347,18 @@ raop_rtp_mirror_thread(void *arg)
                 h264_data.frame_type = 1;
                 h264_data.pts = ntp_timestamp;
 
+                float width_source = byteutils_get_float(packet, 40);
+                float height_source = byteutils_get_float(packet, 44);
+                webrtc::EncodedImage encodedframe(h264_data.data, h264_data.data_len, h264_data.data_len);
+                encodedframe._frameType = webrtc::VideoFrameType::kVideoFrameDelta;
+                encodedframe._completeFrame = true;
+                ret = h264Decoder->Decode(encodedframe, false, -1);
+                if (ret != WEBRTC_VIDEO_CODEC_FALLBACK_SOFTWARE) {
+                    if (ret == WEBRTC_VIDEO_CODEC_OK) {
+                        //++hw_decoded_frames_since_last_fallback_;
+                    }
+                }
+
                 raop_rtp_mirror->callbacks.video_process(raop_rtp_mirror->callbacks.cls, raop_rtp_mirror->ntp, &h264_data);
                 free(payload_decrypted);
 
@@ -364,18 +382,18 @@ raop_rtp_mirror_thread(void *arg)
                 h264.reserved_3_and_sps = payload[5];
                 h264.sps_size = (short) (((payload[6] & 255) << 8) + (payload[7] & 255));
                 logger_log(raop_rtp_mirror->logger, LOGGER_DEBUG, "raop_rtp_mirror sps size = %d", h264.sps_size);
-                h264.sequence_parameter_set = malloc(h264.sps_size);
+                h264.sequence_parameter_set = static_cast<unsigned char*>(malloc(h264.sps_size));
                 memcpy(h264.sequence_parameter_set, payload + 8, h264.sps_size);
                 h264.number_of_pps = payload[h264.sps_size + 8];
                 h264.pps_size = (short) (((payload[h264.sps_size + 9] & 2040) + payload[h264.sps_size + 10]) & 255);
-                h264.picture_parameter_set = malloc(h264.pps_size);
+                h264.picture_parameter_set = static_cast<unsigned char*>(malloc(h264.pps_size));
                 logger_log(raop_rtp_mirror->logger, LOGGER_DEBUG, "raop_rtp_mirror pps size = %d", h264.pps_size);
                 memcpy(h264.picture_parameter_set, payload + h264.sps_size + 11, h264.pps_size);
 
                 if (h264.sps_size + h264.pps_size < 102400) {
                     // Copy the sps and pps into a buffer to hand to the decoder
                     int sps_pps_len = (h264.sps_size + h264.pps_size) + 8;
-                    unsigned char *sps_pps = malloc(sps_pps_len);
+                    unsigned char *sps_pps = static_cast<unsigned char*>(malloc(sps_pps_len));
                     sps_pps[0] = 0;
                     sps_pps[1] = 0;
                     sps_pps[2] = 0;
@@ -396,8 +414,13 @@ raop_rtp_mirror_thread(void *arg)
                     h264_data.data = sps_pps;
                     h264_data.frame_type = 0;
                     h264_data.pts = 0;
-                    raop_rtp_mirror->callbacks.video_process(raop_rtp_mirror->callbacks.cls, raop_rtp_mirror->ntp, &h264_data);
 
+                    webrtc::EncodedImage encodedframe(h264_data.data, h264_data.data_len, h264_data.data_len);
+                    encodedframe._frameType = webrtc::VideoFrameType::kVideoFrameKey;
+                    encodedframe._completeFrame = true;
+                    ret = h264Decoder->Decode(encodedframe, false, -1);
+
+                    raop_rtp_mirror->callbacks.video_process(raop_rtp_mirror->callbacks.cls, raop_rtp_mirror->ntp, &h264_data);
                     if (sps_pps)
                       free(sps_pps);
                 }
@@ -418,7 +441,7 @@ raop_rtp_mirror_thread(void *arg)
     }
 
 #ifdef DUMP_H264
-        fclose(file);
+    fclose(file);
     fclose(file_source);
     fclose(file_len);
 #endif

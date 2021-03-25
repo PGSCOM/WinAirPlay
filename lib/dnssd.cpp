@@ -152,7 +152,7 @@ dnssd_init(const char* name, int name_len, const char* hw_addr, int hw_addr_len,
 
     if (error) *error = DNSSD_ERROR_NOERROR;
 
-    dnssd = calloc(1, sizeof(dnssd_t));
+    dnssd = static_cast<dnssd_t*>(calloc(1, sizeof(dnssd_t)));
     if (!dnssd) {
         if (error) *error = DNSSD_ERROR_OUTOFMEM;
         return NULL;
@@ -215,7 +215,7 @@ dnssd_init(const char* name, int name_len, const char* hw_addr, int hw_addr_len,
 #endif
 
     dnssd->name_len = name_len;
-    dnssd->name = calloc(1, name_len + 1);
+    dnssd->name = static_cast<char*>(calloc(1, name_len + 1));
     if (!dnssd->name) {
         free(dnssd);
         if (error) *error = DNSSD_ERROR_OUTOFMEM;
@@ -224,7 +224,7 @@ dnssd_init(const char* name, int name_len, const char* hw_addr, int hw_addr_len,
     memcpy(dnssd->name, name, name_len);
 
     dnssd->hw_addr_len = hw_addr_len;
-    dnssd->hw_addr = calloc(1, dnssd->hw_addr_len);
+    dnssd->hw_addr = static_cast<char*>(calloc(1, dnssd->hw_addr_len));
     if (!dnssd->hw_addr) {
         free(dnssd->name);
         free(dnssd);
@@ -346,7 +346,7 @@ const char *
 dnssd_get_airplay_txt(dnssd_t *dnssd, int *length)
 {
     *length = dnssd->TXTRecordGetLength(&dnssd->airplay_record);
-    return dnssd->TXTRecordGetBytesPtr(&dnssd->airplay_record);
+    return static_cast<const char*>(dnssd->TXTRecordGetBytesPtr(&dnssd->airplay_record));
 }
 
 const char *

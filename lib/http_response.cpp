@@ -11,6 +11,9 @@
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  *  Lesser General Public License for more details.
  */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -44,7 +47,7 @@ http_response_add_data(http_response_t *response, const char *data, int datalen)
         newdatasize *= 2;
     }
     if (newdatasize != response->data_size) {
-        response->data = realloc(response->data, newdatasize);
+        response->data = static_cast<char*>(realloc(response->data, newdatasize));
         assert(response->data);
     }
     memcpy(response->data+response->data_length, data, datalen);
@@ -63,14 +66,14 @@ http_response_init(const char *protocol, int code, const char *message)
     memset(codestr, 0, sizeof(codestr));
     snprintf(codestr, sizeof(codestr), "%u", code);
 
-    response = calloc(1, sizeof(http_response_t));
+    response = static_cast<http_response_t*>(calloc(1, sizeof(http_response_t)));
     if (!response) {
         return NULL;
     }
 
     /* Allocate response data */
     response->data_size = 1024;
-    response->data = malloc(response->data_size);
+    response->data = static_cast<char*>(malloc(response->data_size));
     if (!response->data) {
         free(response);
         return NULL;
@@ -163,3 +166,7 @@ http_response_get_data(http_response_t *response, int *datalen)
     *datalen = response->data_length;
     return response->data;
 }
+
+#ifdef __cplusplus
+}
+#endif

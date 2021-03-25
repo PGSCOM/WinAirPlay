@@ -11,6 +11,9 @@
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  *  Lesser General Public License for more details.
  */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <stdlib.h>
 #include <string.h>
@@ -39,10 +42,10 @@ struct http_request_s {
 static int
 on_url(llhttp_t *parser, const char *at, size_t length)
 {
-    http_request_t *request = parser->data;
+    http_request_t *request = static_cast<http_request_t*>(parser->data);
     int urllen = request->url ? strlen(request->url) : 0;
 
-    request->url = realloc(request->url, urllen+length+1);
+    request->url = static_cast<char*>(realloc(request->url, urllen+length+1));
     assert(request->url);
 
     request->url[urllen] = '\0';
@@ -53,7 +56,7 @@ on_url(llhttp_t *parser, const char *at, size_t length)
 static int
 on_header_field(llhttp_t *parser, const char *at, size_t length)
 {
-    http_request_t *request = parser->data;
+    http_request_t *request = static_cast<http_request_t*>(parser->data);
 
     /* Check if our index is a value */
     if (request->headers_index%2 == 1) {
@@ -63,8 +66,8 @@ on_header_field(llhttp_t *parser, const char *at, size_t length)
     /* Allocate space for new field-value pair */
     if (request->headers_index == request->headers_size) {
         request->headers_size += 2;
-        request->headers = realloc(request->headers,
-                                   request->headers_size*sizeof(char*));
+        request->headers = static_cast<char**>(realloc(request->headers,
+                                   request->headers_size*sizeof(char*)));
         assert(request->headers);
         request->headers[request->headers_index] = NULL;
         request->headers[request->headers_index+1] = NULL;
@@ -72,12 +75,12 @@ on_header_field(llhttp_t *parser, const char *at, size_t length)
 
     /* Allocate space in the current header string */
     if (request->headers[request->headers_index] == NULL) {
-        request->headers[request->headers_index] = calloc(1, length+1);
+        request->headers[request->headers_index] = static_cast<char*>(calloc(1, length+1));
     } else {
-        request->headers[request->headers_index] = realloc(
+        request->headers[request->headers_index] = static_cast<char*>(realloc(
                 request->headers[request->headers_index],
                 strlen(request->headers[request->headers_index])+length+1
-        );
+        ));
     }
     assert(request->headers[request->headers_index]);
 
@@ -88,7 +91,7 @@ on_header_field(llhttp_t *parser, const char *at, size_t length)
 static int
 on_header_value(llhttp_t *parser, const char *at, size_t length)
 {
-    http_request_t *request = parser->data;
+    http_request_t *request = static_cast<http_request_t*>(parser->data);
 
     /* Check if our index is a field */
     if (request->headers_index%2 == 0) {
@@ -97,12 +100,12 @@ on_header_value(llhttp_t *parser, const char *at, size_t length)
 
     /* Allocate space in the current header string */
     if (request->headers[request->headers_index] == NULL) {
-        request->headers[request->headers_index] = calloc(1, length+1);
+        request->headers[request->headers_index] = static_cast<char*>(calloc(1, length+1));
     } else {
-        request->headers[request->headers_index] = realloc(
+        request->headers[request->headers_index] = static_cast<char*>(realloc(
                 request->headers[request->headers_index],
                 strlen(request->headers[request->headers_index])+length+1
-        );
+        ));
     }
     assert(request->headers[request->headers_index]);
 
@@ -113,9 +116,9 @@ on_header_value(llhttp_t *parser, const char *at, size_t length)
 static int
 on_body(llhttp_t *parser, const char *at, size_t length)
 {
-    http_request_t *request = parser->data;
+    http_request_t *request = static_cast<http_request_t*>(parser->data);
 
-    request->data = realloc(request->data, request->datalen+length);
+    request->data = static_cast<char*>(realloc(request->data, request->datalen+length));
     assert(request->data);
 
     memcpy(request->data+request->datalen, at, length);
@@ -126,9 +129,9 @@ on_body(llhttp_t *parser, const char *at, size_t length)
 static int
 on_message_complete(llhttp_t *parser)
 {
-    http_request_t *request = parser->data;
+    http_request_t *request = static_cast<http_request_t*>(parser->data);
 
-    request->method = llhttp_method_name(request->parser.method);
+    request->method = llhttp_method_name(static_cast<llhttp_method_t>(request->parser.method));
     request->complete = 1;
     return 0;
 }
@@ -138,7 +141,7 @@ http_request_init(void)
 {
     http_request_t *request;
 
-    request = calloc(1, sizeof(http_request_t));
+    request = static_cast<http_request_t*>(calloc(1, sizeof(http_request_t)));
     if (!request) {
         return NULL;
     }
@@ -251,3 +254,7 @@ http_request_get_data(http_request_t *request, int *datalen)
     }
     return request->data;
 }
+
+#ifdef __cplusplus
+}
+#endif

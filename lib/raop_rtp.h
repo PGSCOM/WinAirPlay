@@ -14,6 +14,9 @@
 
 #ifndef RAOP_RTP_H
 #define RAOP_RTP_H
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* For raop_callbacks_t */
 #include "raop.h"
@@ -42,4 +45,7 @@ void raop_rtp_stop(raop_rtp_t *raop_rtp);
 int raop_rtp_is_running(raop_rtp_t *raop_rtp);
 void raop_rtp_destroy(raop_rtp_t *raop_rtp);
 
+#ifdef __cplusplus
+}
+#endif
 #endif

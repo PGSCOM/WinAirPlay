@@ -32,7 +32,7 @@ struct logger_s {
 logger_t *
 logger_init()
 {
-	logger_t *logger = calloc(1, sizeof(logger_t));
+	logger_t *logger = static_cast<logger_t*>(calloc(1, sizeof(logger_t)));
 	assert(logger);
 
 	MUTEX_CREATE(logger->lvl_mutex);
@@ -84,7 +84,7 @@ logger_utf8_to_local(const char *str)
 	BOOL failed;
 
 	wclen = MultiByteToWideChar(CP_UTF8, 0, str, -1, NULL, 0);
-	wcstr = malloc(sizeof(WCHAR) * wclen);
+	wcstr = static_cast<WCHAR*>(malloc(sizeof(WCHAR) * wclen));
 	MultiByteToWideChar(CP_UTF8, 0, str, -1, wcstr, wclen);
 
 	mblen = WideCharToMultiByte(CP_ACP, 0, wcstr, wclen, NULL, 0, NULL, &failed);
@@ -94,7 +94,7 @@ logger_utf8_to_local(const char *str)
 		return NULL;
 	}
 
-	ret = malloc(sizeof(CHAR) * mblen);
+	ret = static_cast<char*>(malloc(sizeof(CHAR) * mblen));
 	WideCharToMultiByte(CP_ACP, 0, wcstr, wclen, ret, mblen, NULL, NULL);
 	free(wcstr);
 #endif

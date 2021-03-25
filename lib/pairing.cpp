@@ -71,7 +71,7 @@ pairing_init_generate()
 {
     pairing_t *pairing;
 
-    pairing = calloc(1, sizeof(pairing_t));
+    pairing = static_cast<pairing_t*>(calloc(1, sizeof(pairing_t)));
     if (!pairing) {
         return NULL;
     }
@@ -105,7 +105,7 @@ pairing_session_init(pairing_t *pairing)
         return NULL;
     }
 
-    session = calloc(1, sizeof(pairing_session_t));
+    session = static_cast<pairing_session_t*>(calloc(1, sizeof(pairing_session_t)));
     if (!session) {
         return NULL;
     }

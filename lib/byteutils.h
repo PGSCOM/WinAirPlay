@@ -14,6 +14,11 @@
 
 #ifndef AIRPLAYSERVER_BYTEUTILS_H
 #define AIRPLAYSERVER_BYTEUTILS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 
 uint16_t byteutils_get_short(unsigned char* b, int offset);
@@ -29,4 +34,7 @@ float byteutils_get_float(unsigned char* b, int offset);
 uint64_t byteutils_get_ntp_timestamp(unsigned char *b, int offset);
 void byteutils_put_ntp_timestamp(unsigned char *b, int offset, uint64_t us_since_1970);
 
+#ifdef __cplusplus
+}
+#endif
 #endif //AIRPLAYSERVER_BYTEUTILS_H
