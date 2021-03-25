@@ -48,6 +48,7 @@ class H264DecoderMFImpl{
   uint32_t width_;
   uint32_t height_;
   std::mutex bufferMutex;
+  FILE* pFile = nullptr;
   //webrtc::DecodedImageCallback* decode_complete_callback_;
 };
 

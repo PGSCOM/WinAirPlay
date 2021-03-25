@@ -19,7 +19,6 @@
 DEFINE_GUID(MF_MT_FRAME_RATE,
     0xc459a2e8, 0x3d2c, 0x4e44, 0xb1, 0x32, 0xfe, 0xe5, 0x15, 0x6c, 0x7b, 0xb0);
     */
-#define MF_E_NO_MORE_TYPES               _HRESULT_TYPEDEF_(0xC00D36B9L)
 
 #ifdef _DEBUG
 #define ON_SUCCEEDED(act)                      \
@@ -48,11 +47,17 @@ H264DecoderMFImpl::H264DecoderMFImpl()
       height_(0u)/*,
       decode_complete_callback_(nullptr)*/ {
   HRESULT hr = S_OK;
+  //the yuvplayer should show in 688*972 NV12 format
+  fopen_s(&pFile, "output.yuv", "wb+");
   ON_SUCCEEDED(MFStartup(MF_VERSION, MFSTARTUP_NOSOCKET));
 }
 
 H264DecoderMFImpl::~H264DecoderMFImpl() {
   OutputDebugString(L"H264DecoderMFImpl::~H264DecoderMFImpl()\n");
+  if (pFile != nullptr) {
+      fclose(pFile);
+      pFile = nullptr;
+  }
   HRESULT hr = S_OK;
   Release();
   ON_SUCCEEDED(MFShutdown());
@@ -338,6 +343,8 @@ HRESULT H264DecoderMFImpl::FlushFrames(uint32_t rtp_timestamp,
         //RTC_LOG(LS_ERROR) << "Decode failure: could lock buffer for copying.";
         return hr;
       }
+
+      fwrite(src_data, sizeof(char), cur_len, pFile);
 
       // Convert NV12 to I420. Y and UV sections have same stride in NV12
       // (width). The size of the Y section is the size of the frame, since Y

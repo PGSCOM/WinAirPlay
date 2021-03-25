@@ -32,7 +32,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -78,7 +78,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\playfair;$(SolutionDir)..\lib\llhttp;$(SolutionDir)..\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;pthreads\lib\x64\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\playfair;$(SolutionDir)..\lib\llhttp;$(SolutionDir)..\lib\plist\include;$(SolutionDir)..\decoder;C:\Program Files\OpenSSL-Win64\include;pthreads\lib\$(Platform)\$(Configuration);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -92,6 +92,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <CallingConvention>Cdecl</CallingConvention>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -107,6 +108,8 @@
     </Midl>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalDependencies>decoder.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib\$(Platform)\$(Configuration);..\..\build\out\decoder\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -265,23 +268,23 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\byteutils.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\crypto.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\dnssd.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\fairplay_playfair.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\http_request.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\http_response.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\httpd.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\logger.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\mirror_buffer.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\netutils.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\pairing.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_buffer.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_ntp.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_rtp.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_rtp_mirror.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\utils.c" />
+    <ClCompile Include="..\..\lib\byteutils.cpp" />
+    <ClCompile Include="..\..\lib\crypto.cpp" />
+    <ClCompile Include="..\..\lib\dnssd.cpp" />
+    <ClCompile Include="..\..\lib\fairplay_playfair.cpp" />
+    <ClCompile Include="..\..\lib\http_request.cpp" />
+    <ClCompile Include="..\..\lib\http_response.cpp" />
+    <ClCompile Include="..\..\lib\httpd.cpp" />
+    <ClCompile Include="..\..\lib\logger.cpp" />
+    <ClCompile Include="..\..\lib\mirror_buffer.cpp" />
+    <ClCompile Include="..\..\lib\netutils.cpp" />
+    <ClCompile Include="..\..\lib\pairing.cpp" />
+    <ClCompile Include="..\..\lib\raop.cpp" />
+    <ClCompile Include="..\..\lib\raop_buffer.cpp" />
+    <ClCompile Include="..\..\lib\raop_ntp.cpp" />
+    <ClCompile Include="..\..\lib\raop_rtp.cpp" />
+    <ClCompile Include="..\..\lib\raop_rtp_mirror.cpp" />
+    <ClCompile Include="..\..\lib\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\decoder\decoder.vcxproj">
