@@ -143,7 +143,7 @@ raop_rtp_init_mirror_aes(raop_rtp_mirror_t *raop_rtp_mirror, uint64_t streamConn
     mirror_buffer_init_aes(raop_rtp_mirror->buffer, streamConnectionID);
 }
 
-#define DUMP_H264
+//#define DUMP_H264
 
 #define RAOP_PACKET_LEN 32768
 /**

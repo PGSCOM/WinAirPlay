@@ -72,7 +72,7 @@ mirror_buffer_init_aes(mirror_buffer_t *mirror_buffer, uint64_t streamConnection
     memcpy(decrypt_aeskey, hash1, 16);
     memcpy(decrypt_aesiv, hash2, 16);
 #ifdef DUMP_KEI_IV
-    FILE* keyfile = fopen("/sdcard/111.keyiv", "wb");
+    FILE* keyfile = fopen("111.keyiv", "wb");
     fwrite(decrypt_aeskey, 16, 1, keyfile);
     fwrite(decrypt_aesiv, 16, 1, keyfile);
     fclose(keyfile);

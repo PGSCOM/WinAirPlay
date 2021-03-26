@@ -28,3 +28,7 @@
 /build/Airplay.len
 /build/Airplay.source
 /build/output.yuv
+/build/Airplay.aac
+/build/Airplay.keyiv
+/build/ffmpeg.exe
+/build/lib/aac_decoder/x64

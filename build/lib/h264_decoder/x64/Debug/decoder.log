@@ -1,0 +1,14 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (decoder.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  aligned_malloc.cc
+  encoded_image.cc
+  h264_decoder_mf.cc
+  h264_decoder_mf_impl.cc
+C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\h264_decoder\h264_decoder_mf_impl.cc(400,3): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\h264_decoder\h264_decoder_mf_impl.cc(419,3): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\h264_decoder\h264_decoder_mf_impl.cc(446,18): warning C4244: '=': conversion from 'double' to 'int64_t', possible loss of data
+  i420_buffer.cc
+  i420_buffer_pool.cc
+  video_content_type.cc
+  video_frame_buffer.cc
+  Generating Code...
+  decoder.vcxproj -> C:\Users\YenBe\Documents\git\WinAirPlay\build\out\h264_decoder\x64\Debug\h264_decoder.lib
