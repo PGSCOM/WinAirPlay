@@ -263,17 +263,17 @@ HRESULT H264DecoderMFImpl::FlushFrames(uint32_t rtp_timestamp,
     }
 
     // Create output buffer description
-    MFT_OUTPUT_DATA_BUFFER output_data_buffer;
-    output_data_buffer.dwStatus = 0;
-    output_data_buffer.dwStreamID = 0;
-    output_data_buffer.pEvents = nullptr;
-    output_data_buffer.pSample = out_sample.Get();
+    MFT_OUTPUT_DATA_BUFFER output_data_buffer[1];
+    output_data_buffer[0].dwStatus = 0;
+    output_data_buffer[0].dwStreamID = 0;
+    output_data_buffer[0].pEvents = nullptr;
+    output_data_buffer[0].pSample = out_sample.Get();
 
     // Invoke the Media Foundation decoder
     // Note: we don't use ON_SUCCEEDED here since ProcessOutput returns
     //       MF_E_TRANSFORM_NEED_MORE_INPUT often (too many log messages).
     DWORD status;
-    hr = decoder_->ProcessOutput(0, 1, &output_data_buffer, &status);
+    hr = decoder_->ProcessOutput(0, 1, output_data_buffer, &status);
 
     if (FAILED(hr))
       return hr; /* can return MF_E_TRANSFORM_NEED_MORE_INPUT or
@@ -512,7 +512,7 @@ int H264DecoderMFImpl::Decode(const webrtc::EncodedImage& input_image,
 
   // Enqueue the new frame with Media Foundation
   ON_SUCCEEDED(EnqueueFrame(input_image, missing_frames));
-  if (hr == 0xC00D36B5L/*MF_E_NOTACCEPTING*/) {
+  if (hr == MF_E_NOTACCEPTING) {
     // For robustness (shouldn't happen). Flush any old MF data blocking the
     // new frames.
     hr = decoder_->ProcessMessage(MFT_MESSAGE_COMMAND_FLUSH, NULL);
@@ -531,7 +531,7 @@ int H264DecoderMFImpl::Decode(const webrtc::EncodedImage& input_image,
   // Flush any decoded samples resulting from new frame, invoking callback
   hr = FlushFrames(input_image.Timestamp(), input_image.ntp_time_ms_);
 
-  if (hr == 0xC00D6D61L/*MF_E_TRANSFORM_STREAM_CHANGE*/) {
+  if (hr == MF_E_TRANSFORM_STREAM_CHANGE) {
     // Output media type is no longer suitable. Reconfigure and retry.
     bool suitable_type_found;
     hr = ConfigureOutputMediaType(decoder_, MFVideoFormat_NV12,

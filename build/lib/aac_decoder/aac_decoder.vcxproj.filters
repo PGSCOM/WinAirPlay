@@ -15,21 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="WMFUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WMFAACDecoder.cpp">
+    <ClCompile Include="aac_decoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WMFUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WMFAACDecoder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WMFSymbols.h">
+    <ClInclude Include="aac_decoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

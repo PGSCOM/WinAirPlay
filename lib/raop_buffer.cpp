@@ -16,6 +16,7 @@
 #include <string.h>
 #include <assert.h>
 #include <math.h>
+#include <memory>
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -28,19 +29,6 @@
 #include "stream.h"
 
 #define RAOP_BUFFER_LENGTH 32
-
-typedef struct {
-    /* Data available */
-    int filled;
-
-    /* RTP header */
-    unsigned short seqnum;
-    uint64_t timestamp;
-
-    /* Payload data */
-    unsigned int payload_size;
-    void *payload_data;
-} raop_buffer_entry_t;
 
 struct raop_buffer_s {
     logger_t *logger;
@@ -192,7 +180,7 @@ raop_buffer_decrypt(raop_buffer_t *raop_buffer, unsigned char *data, unsigned ch
 }
 
 int
-raop_buffer_enqueue(raop_buffer_t *raop_buffer, unsigned char *data, unsigned short datalen, uint64_t timestamp, int use_seqnum) {
+raop_buffer_enqueue(raop_buffer_t *raop_buffer, unsigned char *data, unsigned short datalen, uint64_t timestamp, int use_seqnum, raop_buffer_entry_t& buffer_entry) {
     assert(raop_buffer);
 
     /* Check packet data length is valid */
@@ -235,7 +223,15 @@ raop_buffer_enqueue(raop_buffer_t *raop_buffer, unsigned char *data, unsigned sh
     entry->filled = 1;
 
     entry->payload_data = malloc(payload_size);
+    memset(entry->payload_data, 0, payload_size);
     int decrypt_ret = raop_buffer_decrypt(raop_buffer, data, static_cast<unsigned char*>(entry->payload_data), payload_size, &entry->payload_size);
+    
+    //buffer_entry.timestamp = entry->timestamp;
+    buffer_entry.payload_data = malloc(payload_size);
+    buffer_entry.payload_size = payload_size;
+    memset(buffer_entry.payload_data, 0, payload_size);
+    memcpy(buffer_entry.payload_data, entry->payload_data, payload_size);
+
     assert(decrypt_ret >= 0);
     assert(entry->payload_size <= payload_size);
 

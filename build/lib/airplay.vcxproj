@@ -78,7 +78,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\playfair;$(SolutionDir)..\lib\llhttp;$(SolutionDir)..\lib\plist\include;$(SolutionDir)\lib\aac_decoder;$(SolutionDir)\lib\h264_decoder;C:\Program Files\OpenSSL-Win64\include;pthreads\lib\$(Platform)\$(Configuration);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\playfair;$(SolutionDir)..\lib\llhttp;$(SolutionDir)..\lib\plist\include;$(SolutionDir)lib\aac_decoder;$(SolutionDir)lib\h264_decoder;C:\Program Files\OpenSSL-Win64\include;pthreads\lib\$(Platform)\$(Configuration);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -109,7 +109,7 @@
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <AdditionalDependencies>h264_decoder.lib;aac_decoder.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\lib\$(Platform)\$(Configuration);..\out\aac_decoder\$(Platform)\$(Configuration);..\out\h264_decoder\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\lib\$(Platform)\$(Configuration);$(SolutionDir)..\build\out\aac_decoder\$(Platform)\$(Configuration);$(SolutionDir)..\build\out\h264_decoder\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

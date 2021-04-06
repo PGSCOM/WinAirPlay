@@ -17,6 +17,7 @@
 #include <string.h>
 #include <assert.h>
 #include <errno.h>
+#include <memory>
 #include <stdbool.h>
 
 #include "raop_rtp.h"
@@ -28,6 +29,8 @@
 #include "byteutils.h"
 #include "mirror_buffer.h"
 #include "stream.h"
+
+#include "aac_decoder.h"
 
 #define NO_FLUSH (-42)
 
@@ -397,6 +400,9 @@ raop_rtp_thread_udp(void *arg)
     socklen_t saddrlen;
     assert(raop_rtp);
 
+    std::unique_ptr<owt::audio::AACDecoderMFImpl> aacDecoder = owt::audio::MFAACDecoder::Create();
+    aacDecoder->init();
+
     while(1) {
         fd_set rfds;
         struct timeval tv;
@@ -446,7 +452,12 @@ raop_rtp_thread_udp(void *arg)
                 uint64_t ntp_now = raop_ntp_get_local_time(raop_rtp->ntp);
                 logger_log(raop_rtp->logger, LOGGER_DEBUG, "raop_rtp audio resent: ntp = %llu, now = %llu, latency=%lld, rtp=%u",
                            ntp_timestamp, ntp_now, ((int64_t) ntp_now) - ((int64_t) ntp_timestamp), rtp_timestamp);
-                int result = raop_buffer_enqueue(raop_rtp->buffer, packet + 4, packetlen - 4, ntp_timestamp, 1);
+
+                raop_buffer_entry_t entry;
+                int result = raop_buffer_enqueue(raop_rtp->buffer, packet + 4, packetlen - 4, ntp_timestamp, 1, entry);
+                HRESULT hr = aacDecoder->enqueue(entry.payload_data, entry.payload_size, ntp_timestamp);
+                //free(entry.payload_data);
+                hr = aacDecoder->decode();
                 assert(result >= 0);
             } else if (type_c == 0x54 && packetlen >= 20) {
                 // The unit for the rtp clock is 1 / sample rate = 1 / 44100
@@ -484,7 +495,11 @@ raop_rtp_thread_udp(void *arg)
                 logger_log(raop_rtp->logger, LOGGER_DEBUG, "raop_rtp audio: ntp = %llu, now = %llu, latency=%lld, rtp=%u",
                            ntp_timestamp, ntp_now, ((int64_t) ntp_now) - ((int64_t) ntp_timestamp), rtp_timestamp);
 
-                int result = raop_buffer_enqueue(raop_rtp->buffer, packet, packetlen, ntp_timestamp, 1);
+                raop_buffer_entry_t entry;
+                int result = raop_buffer_enqueue(raop_rtp->buffer, packet, packetlen, ntp_timestamp, 1, entry);
+                HRESULT hr = aacDecoder->enqueue(entry.payload_data, entry.payload_size, ntp_timestamp);
+                //free(entry.payload_data);
+                hr = aacDecoder->decode();
                 assert(result >= 0);
 
                 // Render continuous buffer entries

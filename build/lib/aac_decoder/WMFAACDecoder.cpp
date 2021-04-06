@@ -106,12 +106,14 @@ WMFAACDecoder::Init(int32_t aChannelCount,
 
   BYTE* userData = nullptr;
   UINT32 userDataLength;
+  /*
   hr = AACAudioSpecificConfigToUserData(aAACAudioSpecificConfig,
                                         aAudioConfigLength,
                                         &userData,
                                         &userDataLength);
+    */                                
   ENSURE(SUCCEEDED(hr), hr);
-  hr = SetDecoderInputType(aChannelCount, aSampleRate, userData, userDataLength);
+  hr = SetDecoderInputType(aChannelCount, aSampleRate, userData, 0/*userDataLength*/);
   delete userData;
   ENSURE(SUCCEEDED(hr), hr);
 
