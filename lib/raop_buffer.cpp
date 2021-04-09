@@ -133,7 +133,7 @@ seqnum_cmp(unsigned short s1, unsigned short s2)
     return (s1 - s2);
 }
 
-#define DUMP_AUDIO
+//#define DUMP_AUDIO
 
 #ifdef DUMP_AUDIO
 static FILE* file_aac = NULL;

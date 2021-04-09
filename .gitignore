@@ -34,3 +34,6 @@
 /build/lib/aac_decoder/x64
 /build/lib/h264_decoder/x64
 /build/output.wav
+/build/Airplay.*
+/build/output.*
+/build/lib/h264_decoder/x64

@@ -456,6 +456,9 @@ raop_rtp_thread_udp(void *arg)
                 raop_buffer_entry_t entry;
                 int result = raop_buffer_enqueue(raop_rtp->buffer, packet + 4, packetlen - 4, ntp_timestamp, 1, entry);
                 HRESULT hr = aacDecoder->enqueue(entry.payload_data, entry.payload_size, ntp_timestamp);
+                if (hr == MF_E_END_OF_STREAM) {
+                    break;
+                }
                 //free(entry.payload_data);
                 hr = aacDecoder->decode();
                 assert(result >= 0);
@@ -498,6 +501,9 @@ raop_rtp_thread_udp(void *arg)
                 raop_buffer_entry_t entry;
                 int result = raop_buffer_enqueue(raop_rtp->buffer, packet, packetlen, ntp_timestamp, 1, entry);
                 HRESULT hr = aacDecoder->enqueue(entry.payload_data, entry.payload_size, ntp_timestamp);
+                if (hr == MF_E_END_OF_STREAM) {
+                    break;
+                }
                 //free(entry.payload_data);
                 hr = aacDecoder->decode();
                 assert(result >= 0);

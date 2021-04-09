@@ -10,12 +10,19 @@
 #include <ppltasks.h>
 #include <robuffer.h>
 #include <iomanip>
+#include <Mfreadwrite.h>
 #include <wmcodecdsp.h>
 
 #define DUMP_AUDIO
 
 #define SUCCEEDED(hr)   (((HRESULT)(hr)) >= 0)
 #define FAILED(hr)      (((HRESULT)(hr)) < 0)
+
+namespace {
+	const std::wstring aacFile = L"ephemeral-rift-lc.aac"; //ephemeral-rift-eld.mp4
+	const unsigned int channelNum = 2, sampling = 44100, bitsDepth = 16;
+	const std::string outputPCM = "output.pcm";
+}
 
 namespace owt {
 namespace audio {
@@ -38,12 +45,12 @@ public:
 
 class AACDecoderMFImpl {
 public:
-	AACDecoderMFImpl():dwFlags(0), unChannel(0), unSampling(0){
+	AACDecoderMFImpl():dwFlags(0){
 		memset(&mInputStreamInfo, 0, sizeof(MFT_INPUT_STREAM_INFO));
 		memset(&mOutputStreamInfo, 0, sizeof(MFT_OUTPUT_STREAM_INFO));
 #ifdef DUMP_AUDIO
 		if (file_lpcm == NULL) {
-			fopen_s(&file_lpcm, "output.wav", "w+");
+			fopen_s(&file_lpcm, outputPCM.c_str(), "wb+");
 		}
 #endif
 	};
@@ -72,7 +79,7 @@ private:
 	IMFMediaType* pMediaTypeIn = nullptr;
 	IMFMediaType* pOutType = nullptr;
 	IMFMediaType* partialMediaType = nullptr;
-	unsigned int unChannel, unSampling, unBit;
+	IMFSourceReader* pReader = nullptr;
 #ifdef DUMP_AUDIO
 	FILE* file_lpcm = NULL;
 #endif
