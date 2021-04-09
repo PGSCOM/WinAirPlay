@@ -19,7 +19,7 @@
 #define FAILED(hr)      (((HRESULT)(hr)) < 0)
 
 namespace {
-	const std::wstring aacFile = L"ephemeral-rift-lc.aac"; //ephemeral-rift-eld.mp4
+	//const std::wstring aacFile = L"ephemeral-rift-lc.aac"; //ephemeral-rift-eld.mp4
 	const unsigned int channelNum = 2, sampling = 44100, bitsDepth = 16;
 	const std::string outputPCM = "output.pcm";
 }

@@ -33,7 +33,7 @@ HRESULT AACDecoderMFImpl::init(void) {
 	HRESULT hrError = S_OK;
 	hrError = CoInitializeEx(0, COINIT_APARTMENTTHREADED);
 	hrError = MFStartup(MF_VERSION, MFSTARTUP_FULL);
-	hrError = CoCreateInstance(CLSID_CMSAACDecMFT/*IID_CMSAACDecMFT*/, 0, CLSCTX_INPROC_SERVER, IID_IMFTransform, (void**)&pDecoder);
+	hrError = CoCreateInstance(CLSID_CMSAACDecMFT, 0, CLSCTX_INPROC_SERVER, IID_IMFTransform, (void**)&pDecoder);
 
 	// Set Input Type
 	hrError = MFCreateMediaType(&pMediaTypeIn);
@@ -54,7 +54,7 @@ HRESULT AACDecoderMFImpl::init(void) {
 	  if (FAILED(hrError))
 		  return hrError;
 	*/
-	hrError = pMediaTypeIn->SetUINT32(MF_MT_AAC_PAYLOAD_TYPE, 1);// 0 = Raw, 1 = ADTS, 2=ADIF, 3=LOAS; default value 0
+	hrError = pMediaTypeIn->SetUINT32(MF_MT_AAC_PAYLOAD_TYPE, 0);// 0 = Raw, 1 = ADTS, 2=ADIF, 3=LOAS; default value 0
 	if (FAILED(hrError))
 		return hrError;
 
@@ -76,7 +76,7 @@ HRESULT AACDecoderMFImpl::init(void) {
 	// https://docs.microsoft.com/zh-tw/windows/win32/medfound/aac-decoder
 	// https://docs.microsoft.com/en-us/windows/win32/api/mmreg/ns-mmreg-heaacwaveinfo
 	// https://www.twblogs.net/a/5d486dabbd9eee541c303816
-	byte arrUser[] = { 0x01, 0x00/*wPayloadType  0 = Raw, 1 = ADTS, 2=ADIF, 3=LOAS*/,
+	byte arrUser[] = { 0x00, 0x00/*wPayloadType  0 = Raw, 1 = ADTS, 2=ADIF, 3=LOAS*/,
 					   0xFE, 0x00/*wAudioProfileLevelIndication, 0 or FE = unknown*/,
 					   0x00, 0x00/*wStructType*/, 
 					   0x00, 0x00/*wReserved1*/,
@@ -136,6 +136,7 @@ HRESULT AACDecoderMFImpl::init(void) {
 		return hrError;
 	
 	//Read aac file
+	/*
 	IMFMediaType* partialMediaType = nullptr;
 	hrError = MFCreateSourceReaderFromURL(aacFile.c_str(), 0, &pReader);
 	if (FAILED(hrError))
@@ -160,7 +161,7 @@ HRESULT AACDecoderMFImpl::init(void) {
 	hrError = partialMediaType->Release();
 	if (FAILED(hrError))
 		return hrError;
-
+	*/
 	hrError = pDecoder->ProcessMessage(MFT_MESSAGE_NOTIFY_BEGIN_STREAMING, 0);
 	if (FAILED(hrError))
 		return hrError;
@@ -185,25 +186,69 @@ HRESULT AACDecoderMFImpl::enqueue(void* buffer, DWORD bufferSize, int64_t aTimes
 	HRESULT hr = S_OK;
 	IMFSample* pSampleIn = nullptr;
 
+	// Create a MF buffer from our data
+	IMFMediaBuffer* in_buffer = nullptr;
+	//int32_t bufferSize = std::max<uint32_t>(uint32_t(mInputStreamInfo.cbSize), buffer_size);
+	UINT32 alignment = (mInputStreamInfo.cbAlignment > 1) ? mInputStreamInfo.cbAlignment - 1 : 0;
+	hr = MFCreateAlignedMemoryBuffer(bufferSize, alignment, &in_buffer);
+	if (FAILED(hr))
+		return hr;
+
+	DWORD max_len, cur_len;
+	BYTE* data = nullptr;
+	hr = in_buffer->Lock(&data, &max_len, &cur_len);
+	if (FAILED(hr))
+		return hr;
+
+	memcpy(data, buffer, bufferSize);
+
+	hr = in_buffer->Unlock();
+	if (FAILED(hr)) {
+		in_buffer->Release();
+		return hr;
+	}
+	
+	hr = in_buffer->SetCurrentLength(bufferSize);
+	if (FAILED(hr)) {
+		in_buffer->Release();
+		return hr;
+	}
+
+	hr = MFCreateSample(&pSampleIn);
+	if (FAILED(hr)) {
+		in_buffer->Release();
+		return hr;
+	}
+
+	hr = pSampleIn->AddBuffer(in_buffer);
+	if (FAILED(hr)) {
+		in_buffer->Release();
+		pSampleIn->Release();
+		return hr;
+	}
+	/*
 	LONGLONG timestamp;
 	DWORD actualStreamIndex;
-
 	hr = pReader->ReadSample(MF_SOURCE_READER_FIRST_AUDIO_STREAM, 0, &actualStreamIndex, &dwFlags, &timestamp, &pSampleIn);
 	if (dwFlags == MF_SOURCE_READER_FLAG::MF_SOURCE_READERF_ENDOFSTREAM) {
 		return MF_E_END_OF_STREAM;
 	}
+	*/
 	hr = pDecoder->ProcessInput(0, pSampleIn, 0);
 	if (hr == MF_E_NOTACCEPTING) {
 		// MFT *already* has enough data to produce a sample. Retrieve it.
 		//hr = pDecoder->ProcessMessage(MFT_MESSAGE_COMMAND_FLUSH, NULL);
+		in_buffer->Release();
 		pSampleIn->Release();
 		return MF_E_NOTACCEPTING;
 	}
 	else if (FAILED(hr)) {
+		in_buffer->Release();
 		pSampleIn->Release();
 		return hr;
 	}
 
+	in_buffer->Release();
 	pSampleIn->Release();
 
 	return hr;
@@ -219,7 +264,6 @@ HRESULT AACDecoderMFImpl::decode() {
 	IMFSample *pSampleOut = nullptr;
 	MFT_OUTPUT_STREAM_INFO outputInfo;
 	MFT_OUTPUT_DATA_BUFFER arrOutput[1];
-	IMFMediaBuffer* pBuffer = nullptr;
 	BYTE* pAudioData = nullptr;
 	HRESULT hrError;
 	DWORD outputStatus;
@@ -284,6 +328,7 @@ HRESULT AACDecoderMFImpl::decode() {
 		}
 
 #ifdef DUMP_AUDIO
+		IMFMediaBuffer* pBuffer = nullptr;
 		DWORD dwLength = 0;
 		hrError = pBufferOut->GetCurrentLength(&dwLength);
 		if (dwLength == 0 || FAILED(hrError)) {
@@ -310,9 +355,8 @@ HRESULT AACDecoderMFImpl::decode() {
 			fflush(file_lpcm);
 		}
 		pBuffer->Unlock();
-#endif
-
 		pBuffer->Release();
+#endif
 		pBufferOut->Release();
 		pSampleOut->Release();
 	}
