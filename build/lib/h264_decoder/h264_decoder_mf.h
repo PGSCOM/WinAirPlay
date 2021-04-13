@@ -14,14 +14,6 @@
 namespace owt {
 namespace base {
 
-class MFH264Decoder{
- public:
-  static std::unique_ptr<H264DecoderMFImpl> Create();
-  static bool IsSupported();
-  virtual ~MFH264Decoder() = default;
-};
-
-
 class EncodedImage {
 public:
     EncodedImage();

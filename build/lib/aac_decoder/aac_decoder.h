@@ -21,31 +21,15 @@
 namespace {
 	//const std::wstring aacFile = L"ephemeral-rift-lc.aac"; //ephemeral-rift-eld.mp4
 	const unsigned int channelNum = 2, sampling = 44100, bitsDepth = 16;
-	const std::string outputPCM = "output.pcm";
+	const std::string outputPCM = "mfOutput.pcm";
 }
 
 namespace owt {
 namespace audio {
 
-class AACDecoderMFImpl;
-class MFAACDecoder {
+class AACDecoderMF {
 public:
-	static std::unique_ptr<AACDecoderMFImpl> Create() {
-		return std::make_unique<AACDecoderMFImpl>();
-	}
-	static bool IsSupported() {
-#ifdef WEBRTC_WIN
-		return true;
-#else
-		return false;
-#endif
-	};
-	virtual ~MFAACDecoder() = default;
-};
-
-class AACDecoderMFImpl {
-public:
-	AACDecoderMFImpl():dwFlags(0){
+	AACDecoderMF():dwFlags(0){
 		memset(&mInputStreamInfo, 0, sizeof(MFT_INPUT_STREAM_INFO));
 		memset(&mOutputStreamInfo, 0, sizeof(MFT_OUTPUT_STREAM_INFO));
 #ifdef DUMP_AUDIO
@@ -54,7 +38,7 @@ public:
 		}
 #endif
 	};
-	virtual ~AACDecoderMFImpl() {
+	virtual ~AACDecoderMF() {
 		if (pDecoder != NULL) {
 			// Follow shutdown procedure gracefully. On fail, continue anyway.
 			SUCCEEDED(pDecoder->ProcessMessage(MFT_MESSAGE_NOTIFY_END_OF_STREAM, 0));
@@ -70,7 +54,7 @@ public:
 #endif
 	};
 	HRESULT init(void);
-	HRESULT enqueue(void* buffer, DWORD buffer_size, int64_t aTimestamp);
+	HRESULT enqueue(void* buffer, DWORD buffer_size, uint64_t aTimestamp);
 	HRESULT decode();
 
 private:

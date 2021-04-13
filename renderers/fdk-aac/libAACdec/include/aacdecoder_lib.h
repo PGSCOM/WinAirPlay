@@ -539,6 +539,8 @@ typedef enum {
   AAC_DEC_TOO_MANY_ANC_ELEMENTS = 0x8003, /*!< More than the allowed number of
                                              ancillary data elements should be
                                              written to buffer. */
+  AAC_DEC_INFO_UNKNOWN = 0x8004,          /*!< We can't get information from decoder. */
+  AAC_DEC_INPUT_DATA_SIZE_NOT_ENOUGH = 0x8005, /*!< We can't get information from decoder. */
   aac_dec_anc_data_error_end = 0x8FFF
 
 } AAC_DECODER_ERROR;

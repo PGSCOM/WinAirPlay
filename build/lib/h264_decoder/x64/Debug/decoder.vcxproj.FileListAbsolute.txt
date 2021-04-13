@@ -1,8 +1,0 @@
-C:\Users\YenBe\Documents\git\WinAirPlay\build\x64\Debug\decoder.pdb
-C:\Users\YenBe\Documents\git\WinAirPlay\decoder\x64\Debug\decoder.pdb
-C:\Users\YenBe\Documents\git\RPiPlay_windows\build\out\decoder\x64\Debug\decoder.pdb
-C:\Users\YenBe\Documents\git\RPiPlay_windows\decoder\x64\Debug\decoder.pdb
-C:\Users\YenBe\Documents\git\WinAirPlay\build\out\decoder\x64\Debug\h264_decoder.pdb
-C:\Users\YenBe\Documents\git\WinAirPlay\h264_decoder\x64\Debug\h264_decoder.pdb
-C:\Users\YenBe\Documents\git\WinAirPlay\build\out\h264_decoder\x64\Debug\h264_decoder.pdb
-C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\h264_decoder\x64\Debug\h264_decoder.pdb

@@ -10,16 +10,15 @@
 #include <Mfreadwrite.h>
 #include <codecapi.h>
 
-namespace owt {
-namespace audio {
+namespace {
 int64_t UsecsToHNs(int64_t aUsecs) {
 	return aUsecs * 10;
 }
 
 /**
- * Workaround [MF H264 bug: Output status is never set, even when ready]
- *  => For now, always mark "ready" (results in extra buffer alloc/dealloc).
- */
+	* Workaround [MF H264 bug: Output status is never set, even when ready]
+	*  => For now, always mark "ready" (results in extra buffer alloc/dealloc).
+	*/
 HRESULT GetOutputStatus(IMFTransform* decoder, DWORD* output_status) {
 	HRESULT hr = decoder->GetOutputStatus(output_status);
 
@@ -27,8 +26,12 @@ HRESULT GetOutputStatus(IMFTransform* decoder, DWORD* output_status) {
 	//*output_status = MFT_OUTPUT_STATUS_SAMPLE_READY;
 	return hr;
 }
+}
 
-HRESULT AACDecoderMFImpl::init(void) {
+namespace owt {
+namespace audio {
+
+HRESULT AACDecoderMF::init(void) {
 	// init MF decoder, using Microsoft hard wired GUID
 	HRESULT hrError = S_OK;
 	hrError = CoInitializeEx(0, COINIT_APARTMENTTHREADED);
@@ -181,7 +184,7 @@ HRESULT AACDecoderMFImpl::init(void) {
 	return hrError;
 }
 
-HRESULT AACDecoderMFImpl::enqueue(void* buffer, DWORD bufferSize, int64_t aTimestamp) {
+HRESULT AACDecoderMF::enqueue(void* buffer, DWORD bufferSize, uint64_t aTimestamp) {
 	// process input buffer
 	HRESULT hr = S_OK;
 	IMFSample* pSampleIn = nullptr;
@@ -237,7 +240,6 @@ HRESULT AACDecoderMFImpl::enqueue(void* buffer, DWORD bufferSize, int64_t aTimes
 	hr = pDecoder->ProcessInput(0, pSampleIn, 0);
 	if (hr == MF_E_NOTACCEPTING) {
 		// MFT *already* has enough data to produce a sample. Retrieve it.
-		//hr = pDecoder->ProcessMessage(MFT_MESSAGE_COMMAND_FLUSH, NULL);
 		in_buffer->Release();
 		pSampleIn->Release();
 		return MF_E_NOTACCEPTING;
@@ -258,7 +260,7 @@ HRESULT AACDecoderMFImpl::enqueue(void* buffer, DWORD bufferSize, int64_t aTimes
  * Note: expected to return MF_E_TRANSFORM_NEED_MORE_INPUT and
  *       MF_E_TRANSFORM_STREAM_CHANGE which must be handled by caller.
  */
-HRESULT AACDecoderMFImpl::decode() {
+HRESULT AACDecoderMF::decode() {
 	// get LPCM output
 	DWORD dwStatus;
 	IMFSample *pSampleOut = nullptr;

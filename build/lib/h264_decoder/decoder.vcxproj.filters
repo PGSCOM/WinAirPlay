@@ -71,9 +71,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="h264_decoder_mf.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="h264_decoder_mf_impl.cc">
       <Filter>Source Files</Filter>
     </ClCompile>

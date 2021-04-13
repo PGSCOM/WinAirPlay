@@ -161,7 +161,7 @@ raop_rtp_mirror_thread(void *arg)
     unsigned char* payload = NULL;
     unsigned int readstart = 0;
 
-    std::unique_ptr<owt::base::H264DecoderMFImpl> h264Decoder = owt::base::MFH264Decoder::Create();
+    std::unique_ptr<owt::base::H264DecoderMFImpl> h264Decoder = std::make_unique<owt::base::H264DecoderMFImpl>();
     int res = h264Decoder->InitDecode(680, 972, 25, 1);
 
 #ifdef DUMP_H264

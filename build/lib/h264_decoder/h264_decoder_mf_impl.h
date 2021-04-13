@@ -10,6 +10,8 @@
 #include "i420_buffer_pool.h"
 #include "encoded_image.h"
 
+#define DUMP_VIDEO
+
 using Microsoft::WRL::ComPtr;
 
 namespace owt {
@@ -26,9 +28,7 @@ class H264DecoderMFImpl{
 
   int Decode(const webrtc::EncodedImage& input_image,
              bool missing_frames,
-             int64_t /*render_time_ms*/);
-
-  //int RegisterDecodeCompleteCallback(webrtc::DecodedImageCallback* callback);
+             uint64_t /*render_time_ms*/);
 
   int Release();
 
@@ -48,8 +48,9 @@ class H264DecoderMFImpl{
   uint32_t width_;
   uint32_t height_;
   std::mutex bufferMutex;
+#ifdef DUMP_VIDEO
   FILE* pFile = nullptr;
-  //webrtc::DecodedImageCallback* decode_complete_callback_;
+#endif
 };
 
 } }

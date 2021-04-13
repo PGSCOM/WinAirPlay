@@ -30,7 +30,8 @@
 #include "mirror_buffer.h"
 #include "stream.h"
 
-#include "aac_decoder.h"
+//#include "aac_decoder.h"
+#include "audio_renderer_rpi.h"
 
 #define NO_FLUSH (-42)
 
@@ -400,7 +401,8 @@ raop_rtp_thread_udp(void *arg)
     socklen_t saddrlen;
     assert(raop_rtp);
 
-    std::unique_ptr<owt::audio::AACDecoderMFImpl> aacDecoder = owt::audio::MFAACDecoder::Create();
+    //std::unique_ptr<owt::audio::AACDecoderMF> aacDecoder = std::make_unique<owt::audio::AACDecoderMF>();
+    std::unique_ptr<owt::audio::FADAACDecoder> aacDecoder = std::make_unique<owt::audio::FADAACDecoder>();
     aacDecoder->init();
 
     while(1) {
@@ -455,13 +457,17 @@ raop_rtp_thread_udp(void *arg)
 
                 raop_buffer_entry_t entry;
                 int result = raop_buffer_enqueue(raop_rtp->buffer, packet + 4, packetlen - 4, ntp_timestamp, 1, entry);
-                HRESULT hr = aacDecoder->enqueue(entry.payload_data, entry.payload_size, ntp_timestamp);
-                if (hr == MF_E_END_OF_STREAM) {
-                    break;
-                }
-                //free(entry.payload_data);
-                hr = aacDecoder->decode();
                 assert(result >= 0);
+                if (result > 0) {
+                    AAC_DECODER_ERROR hr = aacDecoder->enqueue(entry.payload_data, entry.payload_size, entry.timestamp);
+                    if (hr != AAC_DEC_OK) {
+                        MUTEX_LOCK(raop_rtp->run_mutex);
+                        raop_rtp->running = false;
+                        MUTEX_UNLOCK(raop_rtp->run_mutex);
+                        return 0;
+                    }
+                    hr = aacDecoder->decode();
+                }
             } else if (type_c == 0x54 && packetlen >= 20) {
                 // The unit for the rtp clock is 1 / sample rate = 1 / 44100
                 uint32_t sync_rtp = byteutils_get_int_be(packet, 4) - 11025;
@@ -500,14 +506,17 @@ raop_rtp_thread_udp(void *arg)
 
                 raop_buffer_entry_t entry;
                 int result = raop_buffer_enqueue(raop_rtp->buffer, packet, packetlen, ntp_timestamp, 1, entry);
-                HRESULT hr = aacDecoder->enqueue(entry.payload_data, entry.payload_size, ntp_timestamp);
-                if (hr == MF_E_END_OF_STREAM) {
-                    break;
-                }
-                //free(entry.payload_data);
-                hr = aacDecoder->decode();
                 assert(result >= 0);
-
+                if (result > 0) {
+                    AAC_DECODER_ERROR hr = aacDecoder->enqueue(entry.payload_data, entry.payload_size, entry.timestamp);
+                    if (hr != AAC_DEC_OK) {
+                        MUTEX_LOCK(raop_rtp->run_mutex);
+                        raop_rtp->running = false;
+                        MUTEX_UNLOCK(raop_rtp->run_mutex);
+                        return 0;
+                    }
+                    hr = aacDecoder->decode();
+                }
                 // Render continuous buffer entries
                 void *payload = NULL;
                 unsigned int payload_size;

@@ -79,7 +79,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\out\h264_decoder\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)out\h264_decoder\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -177,7 +177,6 @@
   <ItemGroup>
     <ClCompile Include="aligned_malloc.cc" />
     <ClCompile Include="encoded_image.cc" />
-    <ClCompile Include="h264_decoder_mf.cc" />
     <ClCompile Include="h264_decoder_mf_impl.cc" />
     <ClCompile Include="i420_buffer.cc" />
     <ClCompile Include="i420_buffer_pool.cc" />

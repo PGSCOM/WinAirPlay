@@ -15,11 +15,6 @@
 #include "video_frame_type.h"
 #include "video_rotation.h"
 
-/*
-DEFINE_GUID(MF_MT_FRAME_RATE,
-    0xc459a2e8, 0x3d2c, 0x4e44, 0xb1, 0x32, 0xfe, 0xe5, 0x15, 0x6c, 0x7b, 0xb0);
-    */
-
 #ifdef _DEBUG
 #define ON_SUCCEEDED(act)                      \
   if (SUCCEEDED(hr)) {                         \
@@ -48,16 +43,20 @@ H264DecoderMFImpl::H264DecoderMFImpl()
       decode_complete_callback_(nullptr)*/ {
   HRESULT hr = S_OK;
   //the yuvplayer should show in 688*972 NV12 format
-  fopen_s(&pFile, "output.yuv", "wb+");
+#ifdef DUMP_VIDEO
+  fopen_s(&pFile, "H264Output.yuv", "wb+");
+#endif
   ON_SUCCEEDED(MFStartup(MF_VERSION, MFSTARTUP_NOSOCKET));
 }
 
 H264DecoderMFImpl::~H264DecoderMFImpl() {
   OutputDebugString(L"H264DecoderMFImpl::~H264DecoderMFImpl()\n");
+#ifdef DUMP_VIDEO
   if (pFile != nullptr) {
       fclose(pFile);
       pFile = nullptr;
   }
+#endif
   HRESULT hr = S_OK;
   Release();
   ON_SUCCEEDED(MFShutdown());
@@ -343,9 +342,10 @@ HRESULT H264DecoderMFImpl::FlushFrames(uint32_t rtp_timestamp,
         //RTC_LOG(LS_ERROR) << "Decode failure: could lock buffer for copying.";
         return hr;
       }
-
+#ifdef DUMP_VIDEO
       fwrite(src_data, sizeof(char), cur_len, pFile);
-
+      fflush(pFile);
+#endif
       // Convert NV12 to I420. Y and UV sections have same stride in NV12
       // (width). The size of the Y section is the size of the frame, since Y
       // luminance values are 8-bits each.
@@ -362,26 +362,6 @@ HRESULT H264DecoderMFImpl::FlushFrames(uint32_t rtp_timestamp,
       if (FAILED(hr))
         return hr;
     }
-   
-    // LONGLONG sample_time; /* unused */
-    // ON_SUCCEEDED(spOutSample->GetSampleTime(&sample_time));
-
-    // TODO: Ideally, we should convert sample_time (above) back to 90khz + base
-    // and use it in place of rtp_timestamp, since MF may interpolate it.
-    // Instead, we ignore the MFT sample time out, using rtp from in frame that
-    // triggered this decoded frame.
-    /*
-    webrtc::VideoFrame decoded_frame(buffer, rtp_timestamp, 0, webrtc::kVideoRotation_0);
-
-    // Use ntp time from the earliest frame
-    decoded_frame.set_ntp_time_ms(ntp_time_ms);
-
-    // Emit image to downstream
-    
-    if (decode_complete_callback_ != nullptr) {
-      decode_complete_callback_->Decoded(decoded_frame, 0,
-                                         0);
-    }*/
   }
 
   return hr;
@@ -485,16 +465,12 @@ HRESULT H264DecoderMFImpl::EnqueueFrame(const webrtc::EncodedImage& input_image,
 
 int H264DecoderMFImpl::Decode(const webrtc::EncodedImage& input_image,
                               bool missing_frames,
-                              int64_t /*render_time_ms*/) {
+                              uint64_t /*render_time_ms*/) {
   HRESULT hr = S_OK;
 
   if (!inited_) {
       return WEBRTC_VIDEO_CODEC_UNINITIALIZED;
   }
-  /*
-  if (decode_complete_callback_ == NULL) {
-      return WEBRTC_VIDEO_CODEC_UNINITIALIZED;
-  }*/
 
   if (input_image.data() == NULL && input_image.size() > 0) {
       return WEBRTC_VIDEO_CODEC_ERR_PARAMETER;
@@ -555,14 +531,7 @@ int H264DecoderMFImpl::Decode(const webrtc::EncodedImage& input_image,
 
   return WEBRTC_VIDEO_CODEC_ERROR;
 }
-/*
-int H264DecoderMFImpl::RegisterDecodeCompleteCallback(
-    webrtc::DecodedImageCallback* callback) {
-    std::unique_lock<std::mutex> lock(bufferMutex);
-  decode_complete_callback_ = callback;
-  return WEBRTC_VIDEO_CODEC_OK;
-}
-*/
+
 int H264DecoderMFImpl::Release() {
   OutputDebugString(L"H264DecoderMFImpl::Release()\n");
   HRESULT hr = S_OK;
