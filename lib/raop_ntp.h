@@ -16,6 +16,10 @@
 #ifndef RAOP_NTP_H
 #define RAOP_NTP_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdbool.h>
 #include <stdint.h>
 #include "logger.h"
@@ -39,4 +43,7 @@ uint64_t raop_ntp_get_remote_time(raop_ntp_t *raop_ntp);
 uint64_t raop_ntp_convert_remote_time(raop_ntp_t *raop_ntp, uint64_t remote_time);
 uint64_t raop_ntp_convert_local_time(raop_ntp_t *raop_ntp, uint64_t local_time);
 
+#ifdef __cplusplus
+}
+#endif
 #endif //RAOP_NTP_H

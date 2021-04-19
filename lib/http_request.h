@@ -14,6 +14,9 @@
 
 #ifndef HTTP_REQUEST_H
 #define HTTP_REQUEST_H
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef struct http_request_s http_request_t;
 
@@ -33,4 +36,7 @@ const char *http_request_get_data(http_request_t *request, int *datalen);
 
 void http_request_destroy(http_request_t *request);
 
+#ifdef __cplusplus
+}
+#endif
 #endif

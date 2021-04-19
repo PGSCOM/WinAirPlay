@@ -89,14 +89,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Header Files">
       <UniqueIdentifier>{11ACD1A9-9A9D-39F1-B132-59C2AB1111EF}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{D15DEA82-83E8-34E5-B714-8F71BE7A1AA3}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\lib\plist\CMakeLists.txt" />
   </ItemGroup>
 </Project>

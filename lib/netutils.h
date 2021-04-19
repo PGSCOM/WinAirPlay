@@ -14,6 +14,9 @@
 
 #ifndef NETUTILS_H
 #define NETUTILS_H
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 int netutils_init();
 void netutils_cleanup();
@@ -22,4 +25,7 @@ int netutils_init_socket(unsigned short *port, int use_ipv6, int use_udp);
 unsigned char *netutils_get_address(void *sockaddr, int *length);
 int netutils_parse_address(int family, const char *src, void *dst, int dstlen);
 
+#ifdef __cplusplus
+}
+#endif
 #endif

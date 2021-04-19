@@ -14,6 +14,9 @@
 
 #ifndef RAOP_RTP_MIRROR_H
 #define RAOP_RTP_MIRROR_H
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <stdint.h>
 #include "raop.h"
@@ -33,4 +36,8 @@ static int raop_rtp_init_mirror_sockets(raop_rtp_mirror_t *raop_rtp_mirror, int 
 
 void raop_rtp_mirror_stop(raop_rtp_mirror_t *raop_rtp_mirror);
 void raop_rtp_mirror_destroy(raop_rtp_mirror_t *raop_rtp_mirror);
+
+#ifdef __cplusplus
+}
+#endif
 #endif //RAOP_RTP_MIRROR_H

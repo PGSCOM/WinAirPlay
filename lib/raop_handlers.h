@@ -14,6 +14,9 @@
 
 /* This file should be only included from raop.c as it defines static handler
  * functions and depends on raop internals */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "dnssdint.h"
 #include "utils.h"
@@ -40,7 +43,7 @@ raop_handler_info(raop_conn_t *conn,
     int hw_addr_raw_len = 0;
     const char *hw_addr_raw = dnssd_get_hw_addr(conn->raop->dnssd, &hw_addr_raw_len);
 
-    char *hw_addr = calloc(1, 3 * hw_addr_raw_len);
+    char *hw_addr = static_cast<char*>(calloc(1, 3 * hw_addr_raw_len));
     int hw_addr_len = utils_hwaddr_airplay(hw_addr, 3 * hw_addr_raw_len, hw_addr_raw, hw_addr_raw_len);
 
     int pk_len = 0;
@@ -182,7 +185,7 @@ raop_handler_pairsetup(raop_conn_t *conn,
     pairing_get_public_key(conn->raop->pairing, public_key);
     pairing_session_set_setup_status(conn->pairing);
 
-    *response_data = malloc(sizeof(public_key));
+    *response_data = static_cast<char*>(malloc(sizeof(public_key)));
     if (*response_data) {
         http_response_add_header(response, "Content-Type", "application/octet-stream");
         memcpy(*response_data, public_key, sizeof(public_key));
@@ -224,7 +227,7 @@ raop_handler_pairverify(raop_conn_t *conn,
             if (pairing_session_get_signature(conn->pairing, signature)) {
                 logger_log(conn->raop->logger, LOGGER_ERR, "Error getting ED25519 signature");
             }
-            *response_data = malloc(sizeof(public_key) + sizeof(signature));
+            *response_data = static_cast<char*>(malloc(sizeof(public_key) + sizeof(signature)));
             if (*response_data) {
                 http_response_add_header(response, "Content-Type", "application/octet-stream");
                 memcpy(*response_data, public_key, sizeof(public_key));
@@ -258,7 +261,7 @@ raop_handler_fpsetup(raop_conn_t *conn,
 
     data = (unsigned char *) http_request_get_data(request, &datalen);
     if (datalen == 16) {
-        *response_data = malloc(142);
+        *response_data = static_cast<char*>(malloc(142));
         if (*response_data) {
             http_response_add_header(response, "Content-Type", "application/octet-stream");
             if (!fairplay_setup(conn->fairplay, data, (unsigned char *) *response_data)) {
@@ -270,7 +273,7 @@ raop_handler_fpsetup(raop_conn_t *conn,
             }
         }
     } else if (datalen == 164) {
-        *response_data = malloc(32);
+        *response_data = static_cast<char*>(malloc(32));
         if (*response_data) {
             http_response_add_header(response, "Content-Type", "application/octet-stream");
             if (!fairplay_handshake(conn->fairplay, data, (unsigned char *) *response_data)) {
@@ -523,7 +526,7 @@ raop_handler_set_parameter(raop_conn_t *conn,
     data = http_request_get_data(request, &datalen);
     if (!strcmp(content_type, "text/parameters")) {
         char *datastr;
-        datastr = calloc(1, datalen+1);
+        datastr = static_cast<char*>(calloc(1, datalen+1));
         if (data && datastr && conn->raop_rtp) {
             memcpy(datastr, data, datalen);
             if ((datalen >= 8) && !strncmp(datastr, "volume: ", 8)) {
@@ -574,3 +577,7 @@ raop_handler_record(raop_conn_t *conn,
     http_response_add_header(response, "Audio-Latency", "11025");
     http_response_add_header(response, "Audio-Jack-Status", "connected; type=analog");
 }
+
+#ifdef __cplusplus
+}
+#endif

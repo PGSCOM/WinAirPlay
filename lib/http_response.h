@@ -14,6 +14,9 @@
 
 #ifndef HTTP_RESPONSE_H
 #define HTTP_RESPONSE_H
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef struct http_response_s http_response_t;
 
@@ -29,4 +32,7 @@ const char *http_response_get_data(http_response_t *response, int *datalen);
 
 void http_response_destroy(http_response_t *response);
 
+#ifdef __cplusplus
+}
+#endif
 #endif

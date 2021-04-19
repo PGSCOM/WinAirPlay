@@ -32,7 +32,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -59,9 +59,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)\out\airplay\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">airplay.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">airplay</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)out\airplay\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">airplay.dir\Release\</IntDir>
@@ -78,7 +78,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;pthreads\lib\x64\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\playfair;$(SolutionDir)..\lib\llhttp;$(SolutionDir)..\lib\plist\include;$(SolutionDir)lib\aac_decoder;$(SolutionDir)lib\h264_decoder;C:\Program Files\OpenSSL-Win64\include;pthreads\lib\$(Platform)\$(Configuration);$(SolutionDir)..\renderers;$(SolutionDir)..\renderers\fdk-aac;$(SolutionDir)..\renderers\fdk-aac\libAACdec\include;$(SolutionDir)..\renderers\fdk-aac\libAACenc\include;$(SolutionDir)..\renderers\fdk-aac\libArithCoding\include;$(SolutionDir)..\renderers\fdk-aac\libDRCdec\include;$(SolutionDir)..\renderers\fdk-aac\libFDK\include;$(SolutionDir)..\renderers\fdk-aac\libMpegTPDec\include;$(SolutionDir)..\renderers\fdk-aac\libMpegTPEnc\include;$(SolutionDir)..\renderers\fdk-aac\libPCMutils\include;$(SolutionDir)..\renderers\fdk-aac\libSACdec\include;$(SolutionDir)..\renderers\fdk-aac\libSACenc\include;$(SolutionDir)..\renderers\fdk-aac\libSBRdec\include;$(SolutionDir)..\renderers\fdk-aac\libSBRenc\include;$(SolutionDir)..\renderers\fdk-aac\libSYS\include;$(SolutionDir)..\renderers\fdk-aac\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -92,6 +92,8 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <CallingConvention>Cdecl</CallingConvention>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -107,6 +109,8 @@
     </Midl>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <AdditionalDependencies>h264_decoder.lib;aac_decoder.lib;fdk-aac.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib\$(Platform)\$(Configuration);$(SolutionDir)..\build\out\aac_decoder\$(Platform)\$(Configuration);$(SolutionDir)..\build\out\h264_decoder\$(Platform)\$(Configuration);$(SolutionDir)..\build\out\fdk-aac\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -265,23 +269,23 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\byteutils.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\crypto.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\dnssd.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\fairplay_playfair.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\http_request.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\http_response.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\httpd.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\logger.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\mirror_buffer.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\netutils.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\pairing.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_buffer.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_ntp.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_rtp.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\raop_rtp_mirror.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\utils.c" />
+    <ClCompile Include="..\..\lib\byteutils.cpp" />
+    <ClCompile Include="..\..\lib\crypto.cpp" />
+    <ClCompile Include="..\..\lib\dnssd.cpp" />
+    <ClCompile Include="..\..\lib\fairplay_playfair.cpp" />
+    <ClCompile Include="..\..\lib\http_request.cpp" />
+    <ClCompile Include="..\..\lib\http_response.cpp" />
+    <ClCompile Include="..\..\lib\httpd.cpp" />
+    <ClCompile Include="..\..\lib\logger.cpp" />
+    <ClCompile Include="..\..\lib\mirror_buffer.cpp" />
+    <ClCompile Include="..\..\lib\netutils.cpp" />
+    <ClCompile Include="..\..\lib\pairing.cpp" />
+    <ClCompile Include="..\..\lib\raop.cpp" />
+    <ClCompile Include="..\..\lib\raop_buffer.cpp" />
+    <ClCompile Include="..\..\lib\raop_ntp.cpp" />
+    <ClCompile Include="..\..\lib\raop_rtp.cpp" />
+    <ClCompile Include="..\..\lib\raop_rtp_mirror.cpp" />
+    <ClCompile Include="..\..\lib\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\ZERO_CHECK.vcxproj">
@@ -301,6 +305,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\plist\plist.vcxproj">
       <Project>{CC0F16A5-2A6D-3F01-B795-6F06C9C75A4C}</Project>
       <Name>plist</Name>
+    </ProjectReference>
+    <ProjectReference Include="fdk-aac\fdk-aac.vcxproj">
+      <Project>{03161188-181f-4925-81a2-849d9f88b17f}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -89,6 +89,7 @@ audio_renderer_t *audio_renderer_gstreamer_init(logger_t *logger, video_renderer
     memset(map.data+2, eld_conf[2], map.size);
     memset(map.data+3, eld_conf[3], map.size);
 
+    //https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-good/html/gst-plugins-good-plugins-aacparse.html
     GstCaps *caps = gst_caps_new_simple("audio/mpeg",
         "rate", G_TYPE_INT, 44100,
         "channels", G_TYPE_INT, 2,
