@@ -84,14 +84,14 @@ endif()
 set( RENDERER_FLAGS "${RENDERER_FLAGS} -DHAS_GSTREAMER_RENDERER" )
 
 add_library( renderers STATIC audio_renderer_gstreamer.c video_renderer_gstreamer.c)
-target_link_libraries ( renderers "C:/gstreamer/1.0/msvc_x86/lib/gobject-2.0.lib" )
-target_link_libraries ( renderers "C:/gstreamer/1.0/msvc_x86/lib/gstapp-1.0.lib" )
-target_link_libraries ( renderers "C:/gstreamer/1.0/msvc_x86/lib/glib-2.0.lib" )
-target_link_libraries ( renderers "C:/gstreamer/1.0/msvc_x86/lib/gstreamer-1.0.lib" )
-target_include_directories( renderers PRIVATE "C:/gstreamer/1.0/msvc_x86/include/gstreamer-1.0" )
-target_include_directories( renderers PRIVATE "C:/gstreamer/1.0/msvc_x86/include/glib-2.0" )
-target_include_directories( renderers PRIVATE "C:/gstreamer/1.0/msvc_x86/lib/glib-2.0/include" )
+target_link_libraries ( renderers "C:/gstreamer/1.0/msvc_x86_64/lib/gobject-2.0.lib" )
+target_link_libraries ( renderers "C:/gstreamer/1.0/msvc_x86_64/lib/gstapp-1.0.lib" )
+target_link_libraries ( renderers "C:/gstreamer/1.0/msvc_x86_64/lib/glib-2.0.lib" )
+target_link_libraries ( renderers "C:/gstreamer/1.0/msvc_x86_64/lib/gstreamer-1.0.lib" )
 
+target_include_directories( renderers PRIVATE "C:/gstreamer/1.0/msvc_x86_64/include/gstreamer-1.0" )
+target_include_directories( renderers PRIVATE "C:/gstreamer/1.0/msvc_x86_64/include/glib-2.0" )
+target_include_directories( renderers PRIVATE "C:/gstreamer/1.0/msvc_x86_64/lib/glib-2.0/include" )
 # Pass the final renderer flags up to the parent scope so it knows which renderers
 # will be available to use.
 set( RENDERER_FLAGS "${RENDERER_FLAGS}" PARENT_SCOPE )

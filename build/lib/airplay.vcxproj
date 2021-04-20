@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F0860FCA-9CAD-3860-82A3-8D852BC50D88}</ProjectGuid>
+    <ProjectGuid>{1AD99C28-EBC2-358B-BCCB-43A4D3106401}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
@@ -32,7 +32,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -59,48 +59,46 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)out\airplay\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">airplay.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">airplay</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">airplay.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">airplay</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">airplay.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">airplay</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">airplay.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">airplay</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\playfair;$(SolutionDir)..\lib\llhttp;$(SolutionDir)..\lib\plist\include;$(SolutionDir)lib\aac_decoder;$(SolutionDir)lib\h264_decoder;C:\Program Files\OpenSSL-Win64\include;pthreads\lib\$(Platform)\$(Configuration);$(SolutionDir)..\renderers;$(SolutionDir)..\renderers\fdk-aac;$(SolutionDir)..\renderers\fdk-aac\libAACdec\include;$(SolutionDir)..\renderers\fdk-aac\libAACenc\include;$(SolutionDir)..\renderers\fdk-aac\libArithCoding\include;$(SolutionDir)..\renderers\fdk-aac\libDRCdec\include;$(SolutionDir)..\renderers\fdk-aac\libFDK\include;$(SolutionDir)..\renderers\fdk-aac\libMpegTPDec\include;$(SolutionDir)..\renderers\fdk-aac\libMpegTPEnc\include;$(SolutionDir)..\renderers\fdk-aac\libPCMutils\include;$(SolutionDir)..\renderers\fdk-aac\libSACdec\include;$(SolutionDir)..\renderers\fdk-aac\libSACenc\include;$(SolutionDir)..\renderers\fdk-aac\libSBRdec\include;$(SolutionDir)..\renderers\fdk-aac\libSBRenc\include;$(SolutionDir)..\renderers\fdk-aac\libSYS\include;$(SolutionDir)..\renderers\fdk-aac\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <CallingConvention>Cdecl</CallingConvention>
-      <PrecompiledHeaderFile />
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -109,20 +107,18 @@
     </Midl>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
-      <AdditionalDependencies>h264_decoder.lib;aac_decoder.lib;fdk-aac.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\lib\$(Platform)\$(Configuration);$(SolutionDir)..\build\out\aac_decoder\$(Platform)\$(Configuration);$(SolutionDir)..\build\out\h264_decoder\$(Platform)\$(Configuration);$(SolutionDir)..\build\out\fdk-aac\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -132,10 +128,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -148,14 +144,14 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <Optimization>MinSpace</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -165,10 +161,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -181,15 +177,15 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -197,10 +193,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\playfair;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp;C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\playfair;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp;C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\aac_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\h264_decoder;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libAACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libArithCoding;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libDRCdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libFDK;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPDec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libMpegTPEnc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libPCMutils;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSACenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRdec;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\include\libSBRenc;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\libSYS\include;C:\Users\YenBe\Documents\git\WinAirPlay\lib\..\renderers\fdk-aac\win32;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -212,11 +208,11 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\CMakeLists.txt">
       <StdOutEncoding>UTF-8</StdOutEncoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/lib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/RPiPlay_windows -BC:/Users/YenBe/Documents/git/RPiPlay_windows/build --check-stamp-file C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -224,12 +220,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/lib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/RPiPlay_windows -BC:/Users/YenBe/Documents/git/RPiPlay_windows/build --check-stamp-file C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -237,12 +233,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/lib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/RPiPlay_windows -BC:/Users/YenBe/Documents/git/RPiPlay_windows/build --check-stamp-file C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -250,12 +246,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/lib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/RPiPlay_windows -BC:/Users/YenBe/Documents/git/RPiPlay_windows/build --check-stamp-file C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -263,51 +259,64 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\lib\byteutils.cpp" />
-    <ClCompile Include="..\..\lib\crypto.cpp" />
-    <ClCompile Include="..\..\lib\dnssd.cpp" />
-    <ClCompile Include="..\..\lib\fairplay_playfair.cpp" />
-    <ClCompile Include="..\..\lib\http_request.cpp" />
-    <ClCompile Include="..\..\lib\http_response.cpp" />
-    <ClCompile Include="..\..\lib\httpd.cpp" />
-    <ClCompile Include="..\..\lib\logger.cpp" />
-    <ClCompile Include="..\..\lib\mirror_buffer.cpp" />
-    <ClCompile Include="..\..\lib\netutils.cpp" />
-    <ClCompile Include="..\..\lib\pairing.cpp" />
-    <ClCompile Include="..\..\lib\raop.cpp" />
-    <ClCompile Include="..\..\lib\raop_buffer.cpp" />
-    <ClCompile Include="..\..\lib\raop_ntp.cpp" />
-    <ClCompile Include="..\..\lib\raop_rtp.cpp" />
-    <ClCompile Include="..\..\lib\raop_rtp_mirror.cpp" />
-    <ClCompile Include="..\..\lib\utils.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\byteutils.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\crypto.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\dnssd.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\fairplay_playfair.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\http_request.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\http_response.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\httpd.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\logger.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\mirror_buffer.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\netutils.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\pairing.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\raop.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\raop_buffer.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\raop_ntp.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\raop_rtp.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\raop_rtp_mirror.cpp" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\ZERO_CHECK.vcxproj">
-      <Project>{C12589E6-7E1D-362B-AB78-5BE1675F525D}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\ZERO_CHECK.vcxproj">
+      <Project>{A28C16D8-DD33-3753-95DA-98C0EDD1EC23}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\llhttp\llhttp.vcxproj">
-      <Project>{FA60948F-1170-3B81-8E8B-F01E321BDB9A}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\aac_decoder\aac_decoder.vcxproj">
+      <Project>{13D74DFD-A86D-3905-9CD5-EC1C0D5C0FD4}</Project>
+      <Name>aac_decoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\fdkaac_decoder\fdkaac_decoder.vcxproj">
+      <Project>{8EEFFE9B-6103-3890-BA1E-59B2AD8A9207}</Project>
+      <Name>fdkaac_decoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\h264_decoder\h264_decoder.vcxproj">
+      <Project>{39380AC4-4A0E-3337-9AF7-3FC3861020E9}</Project>
+      <Name>h264_decoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\llhttp.vcxproj">
+      <Project>{04426175-204E-3A71-AEE4-E77D4F7A387D}</Project>
       <Name>llhttp</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\playfair\playfair.vcxproj">
-      <Project>{667A029B-D592-3FE5-90D8-4D2E79645D7B}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\playfair\playfair.vcxproj">
+      <Project>{CF2BFF40-2C2B-3C30-A847-7840AEB52EFA}</Project>
       <Name>playfair</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\plist\plist.vcxproj">
-      <Project>{CC0F16A5-2A6D-3F01-B795-6F06C9C75A4C}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\plist\plist.vcxproj">
+      <Project>{47B3F654-E46B-3413-8869-09406EEF0D8A}</Project>
       <Name>plist</Name>
     </ProjectReference>
-    <ProjectReference Include="fdk-aac\fdk-aac.vcxproj">
-      <Project>{03161188-181f-4925-81a2-849d9f88b17f}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\pthreads\pthreads.vcxproj">
+      <Project>{57E0A215-A58C-3D2B-9B66-CF1088668CA8}</Project>
+      <Name>pthreads</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

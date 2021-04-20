@@ -36,20 +36,14 @@ add_library(plist ${PLIST_SRC} ${PLIST_HEADER} ${LIBCNARY_SRC} ${LIBCNARY_HEADER
 target_include_directories(plist PRIVATE src include libcnary/include)
 set_target_properties(plist PROPERTIES OUTPUT_NAME plist-2.0)
 
-add_library(plist++ STATIC ${PLISTPP_SRC} ${PLIST_HEADER} ${LIBCNARY_SRC} ${LIBCNARY_HEADER})
-set_target_properties(plist++ PROPERTIES OUTPUT_NAME plist++-2.0)
-target_include_directories(plist++ PRIVATE src include libcnary/include)
 
 if(WIN32 AND BUILD_SHARED_LIBS)
     target_compile_options(plist PRIVATE -W3 -WX- -sdl-)
     target_compile_definitions(plist PRIVATE -DLIBPLIST_EXPORTS)
-    target_compile_options(plist++ PRIVATE -W3 -WX- -sdl-)
-    target_compile_definitions(plist++ PRIVATE -DLIBPLIST_EXPORTS)
 endif()
-target_link_libraries(plist++ PRIVATE plist)
 
 install(
-    TARGETS plist plist++
+    TARGETS plist
     RUNTIME DESTINATION bin
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
@@ -61,7 +55,7 @@ set(prefix ${CMAKE_INSTALL_PREFIX})
 set(exec_prefix \${prefix})
 set(libdir \${prefix}/lib)
 set(includedir \${prefix}/../include)
-foreach (PLIST_PKGCONFIG libplist-2.0.pc libplist++-2.0.pc)
+foreach (PLIST_PKGCONFIG libplist-2.0.pc)
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/src/${PLIST_PKGCONFIG}.in
     ${CMAKE_CURRENT_BINARY_DIR}/${PLIST_PKGCONFIG}

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/YenBe/Documents/git/RPiPlay_windows
+# Install script for directory: C:/Users/YenBe/Documents/git/WinAirPlay
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,23 +34,28 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/Debug/rpiplay.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/YenBe/Documents/git/WinAirPlay/build/Debug/rpiplay.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/Release/rpiplay.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/YenBe/Documents/git/WinAirPlay/build/Release/rpiplay.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/MinSizeRel/rpiplay.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/YenBe/Documents/git/WinAirPlay/build/MinSizeRel/rpiplay.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/RelWithDebInfo/rpiplay.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/YenBe/Documents/git/WinAirPlay/build/RelWithDebInfo/rpiplay.exe")
   endif()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/playfair/cmake_install.cmake")
-  include("C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/llhttp/cmake_install.cmake")
-  include("C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/cmake_install.cmake")
-  include("C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/cmake_install.cmake")
-  include("C:/Users/YenBe/Documents/git/RPiPlay_windows/build/renderers/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/playfair/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/llhttp/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/plist/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/aac_decoder/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/renderers/fdk-aac/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/fdkaac_decoder/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/h264_decoder/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/pthreads/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/cmake_install.cmake")
+  include("C:/Users/YenBe/Documents/git/WinAirPlay/build/renderers/cmake_install.cmake")
 
 endif()
 
@@ -62,5 +67,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/YenBe/Documents/git/WinAirPlay/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

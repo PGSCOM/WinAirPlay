@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/YenBe/Documents/git/RPiPlay_windows/renderers
+# Install script for directory: C:/Users/YenBe/Documents/git/WinAirPlay/renderers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

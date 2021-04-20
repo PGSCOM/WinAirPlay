@@ -31,7 +31,7 @@
 #include "stream.h"
 
 //#include "aac_decoder.h"
-#include "audio_renderer_rpi.h"
+#include "fdkaac_decoder.h"
 
 #define NO_FLUSH (-42)
 
@@ -402,7 +402,7 @@ raop_rtp_thread_udp(void *arg)
     assert(raop_rtp);
 
     //std::unique_ptr<owt::audio::AACDecoderMF> aacDecoder = std::make_unique<owt::audio::AACDecoderMF>();
-    std::unique_ptr<owt::audio::FADAACDecoder> aacDecoder = std::make_unique<owt::audio::FADAACDecoder>();
+    std::unique_ptr<owt::audio::FDKAACDecoder> aacDecoder = std::make_unique<owt::audio::FDKAACDecoder>();
     aacDecoder->init();
 
     while(1) {

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist
+# Install script for directory: C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,52 +34,36 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/Debug/plist-2.0.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/plist/Debug/plist-2.0.lib")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/Release/plist-2.0.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/plist/Release/plist-2.0.lib")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/MinSizeRel/plist-2.0.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/plist/MinSizeRel/plist-2.0.lib")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/RelWithDebInfo/plist-2.0.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/plist/RelWithDebInfo/plist-2.0.lib")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/Debug/plist++-2.0.lib")
-  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/Release/plist++-2.0.lib")
-  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/MinSizeRel/plist++-2.0.lib")
-  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/RelWithDebInfo/plist++-2.0.lib")
-  endif()
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/libplist-2.0.pc")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/plist/libplist++-2.0.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/plist/libplist-2.0.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/plist" TYPE FILE FILES
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Array.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Boolean.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Data.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Date.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Dictionary.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Integer.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Key.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Node.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Real.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/String.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Structure.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/Uid.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/plist++.h"
-    "C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/plist/include/plist/plist.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Array.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Boolean.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Data.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Date.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Dictionary.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Integer.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Key.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Node.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Real.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/String.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Structure.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/Uid.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/plist++.h"
+    "C:/Users/YenBe/Documents/git/WinAirPlay/lib/plist/include/plist/plist.h"
     )
 endif()
 

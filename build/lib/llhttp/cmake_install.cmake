@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/llhttp
+# Install script for directory: C:/Users/YenBe/Documents/git/WinAirPlay/lib/llhttp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,5 +1,22 @@
 cmake_minimum_required(VERSION 3.4.1)
-include_directories( playfair llhttp plist/include )
+include_directories( playfair llhttp plist/include aac_decoder h264_decoder)
+include_directories(../renderers
+          ../renderers/fdk-aac
+          ../renderers/fdk-aac/include/libAACdec
+          ../renderers/fdk-aac/include/libAACenc
+          ../renderers/fdk-aac/include/libArithCoding
+          ../renderers/fdk-aac/include/libDRCdec
+          ../renderers/fdk-aac/include/libFDK
+          ../renderers/fdk-aac/include/libMpegTPDec
+          ../renderers/fdk-aac/include/libMpegTPEnc
+          ../renderers/fdk-aac/include/libPCMutils
+          ../renderers/fdk-aac/include/libSACdec
+          ../renderers/fdk-aac/include/libSACenc
+          ../renderers/fdk-aac/include/libSBRdec
+          ../renderers/fdk-aac/include/libSBRenc
+          ../renderers/fdk-aac/libSYS/include
+          ../renderers/fdk-aac/win32
+          )
 
 aux_source_directory(. play_src)
 set(DIR_SRCS ${play_src})
@@ -19,7 +36,11 @@ target_link_libraries(airplay
       playfair
       llhttp
       plist 
-      ws2_32)
+      ws2_32
+      aac_decoder
+      fdkaac_decoder
+      h264_decoder
+      pthreads)
 
 #if( UNIX AND NOT APPLE )
 #  find_package(OpenSSL 1.1.1 REQUIRED)

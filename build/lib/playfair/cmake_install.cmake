@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/playfair
+# Install script for directory: C:/Users/YenBe/Documents/git/WinAirPlay/lib/playfair
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

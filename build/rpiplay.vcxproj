@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AEE74E39-E090-3D92-B106-0E77F5F9DA96}</ProjectGuid>
+    <ProjectGuid>{7F5F7291-8BB1-3DB8-9874-7B9E5E8EB58B}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
@@ -32,7 +32,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)out\rpiplay\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">rpiplay.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">rpiplay</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">rpiplay.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">rpiplay</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">rpiplay.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">rpiplay</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">rpiplay.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">rpiplay</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;$(SolutionDir)lib\h264_decoder;$(SolutionDir)lib\aac_decoder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -100,14 +100,13 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAS_GSTREAMER_RENDERER;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <CallingConvention>Cdecl</CallingConvention>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;HAS_GSTREAMER_RENDERER;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -115,13 +114,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>renderers\$(Configuration)\renderers.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gobject-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstapp-1.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\glib-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MDd.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MDd.lib;out\playfair\$(Platform)\$(Configuration)\playfair.lib;out\llhttp\$(Platform)\$(Configuration)\llhttp.lib;out\plist\$(Platform)\$(Configuration)\plist-2.0.lib;out\pthreads\$(Platform)\$(Configuration)\pthreads.lib;out\airplay\$(Platform)\$(Configuration)\airplay.lib;h264_decoder.lib;aac_decoder.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;mf.lib;mfplat.lib;mfuuid.lib;mfreadwrite.lib;mfplay.lib;wmcodecdspuuid.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0;$(SolutionDir)..\build\out\h264_decoder\$(Platform)\$(Configuration);$(SolutionDir)..\build\out\aac_decoder\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>renderers\Debug\renderers.lib;lib\Debug\airplay.lib;renderers\fdk-aac\Debug\fdk-aac.lib;mf.lib;mfplat.lib;mfuuid.lib;mfreadwrite.lib;mfplay.lib;wmcodecdspuuid.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gobject-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstapp-1.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\glib-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MDd.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MDd.lib;lib\playfair\Debug\playfair.lib;lib\llhttp\Debug\llhttp.lib;lib\plist\Debug\plist-2.0.lib;ws2_32.lib;lib\aac_decoder\Debug\aac_decoder.lib;lib\fdkaac_decoder\Debug\fdkaac_decoder.lib;lib\h264_decoder\Debug\h264_decoder.lib;lib\pthreads\Debug\pthreads.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/YenBe/Documents/git/RPiPlay_windows/build/Debug/rpiplay.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/YenBe/Documents/git/RPiPlay_windows/build/Debug/rpiplay.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/YenBe/Documents/git/WinAirPlay/build/Debug/rpiplay.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/YenBe/Documents/git/WinAirPlay/build/Debug/rpiplay.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -130,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -147,10 +146,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAS_GSTREAMER_RENDERER;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -158,13 +157,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>renderers\Release\renderers.lib;lib\Release\airplay.lib;C:\gstreamer\1.0\msvc_x86\lib\gobject-2.0.lib;C:\gstreamer\1.0\msvc_x86\lib\gstapp-1.0.lib;C:\gstreamer\1.0\msvc_x86\lib\glib-2.0.lib;C:\gstreamer\1.0\msvc_x86\lib\gstreamer-1.0.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MD.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MD.lib;lib\playfair\Release\playfair.lib;lib\llhttp\Release\llhttp.lib;lib\plist\Release\plist-2.0.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>renderers\Release\renderers.lib;lib\Release\airplay.lib;renderers\fdk-aac\Release\fdk-aac.lib;mf.lib;mfplat.lib;mfuuid.lib;mfreadwrite.lib;mfplay.lib;wmcodecdspuuid.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gobject-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstapp-1.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\glib-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MD.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MD.lib;lib\playfair\Release\playfair.lib;lib\llhttp\Release\llhttp.lib;lib\plist\Release\plist-2.0.lib;ws2_32.lib;lib\aac_decoder\Release\aac_decoder.lib;lib\fdkaac_decoder\Release\fdkaac_decoder.lib;lib\h264_decoder\Release\h264_decoder.lib;lib\pthreads\Release\pthreads.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/YenBe/Documents/git/RPiPlay_windows/build/Release/rpiplay.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/YenBe/Documents/git/RPiPlay_windows/build/Release/rpiplay.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/YenBe/Documents/git/WinAirPlay/build/Release/rpiplay.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/YenBe/Documents/git/WinAirPlay/build/Release/rpiplay.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -173,7 +172,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -190,10 +189,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAS_GSTREAMER_RENDERER;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -201,13 +200,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>renderers\MinSizeRel\renderers.lib;lib\MinSizeRel\airplay.lib;C:\gstreamer\1.0\msvc_x86\lib\gobject-2.0.lib;C:\gstreamer\1.0\msvc_x86\lib\gstapp-1.0.lib;C:\gstreamer\1.0\msvc_x86\lib\glib-2.0.lib;C:\gstreamer\1.0\msvc_x86\lib\gstreamer-1.0.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MD.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MD.lib;lib\playfair\MinSizeRel\playfair.lib;lib\llhttp\MinSizeRel\llhttp.lib;lib\plist\MinSizeRel\plist-2.0.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>renderers\MinSizeRel\renderers.lib;lib\MinSizeRel\airplay.lib;renderers\fdk-aac\MinSizeRel\fdk-aac.lib;mf.lib;mfplat.lib;mfuuid.lib;mfreadwrite.lib;mfplay.lib;wmcodecdspuuid.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gobject-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstapp-1.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\glib-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MD.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MD.lib;lib\playfair\MinSizeRel\playfair.lib;lib\llhttp\MinSizeRel\llhttp.lib;lib\plist\MinSizeRel\plist-2.0.lib;ws2_32.lib;lib\aac_decoder\MinSizeRel\aac_decoder.lib;lib\fdkaac_decoder\MinSizeRel\fdkaac_decoder.lib;lib\h264_decoder\MinSizeRel\h264_decoder.lib;lib\pthreads\MinSizeRel\pthreads.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/YenBe/Documents/git/RPiPlay_windows/build/MinSizeRel/rpiplay.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/YenBe/Documents/git/RPiPlay_windows/build/MinSizeRel/rpiplay.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/YenBe/Documents/git/WinAirPlay/build/MinSizeRel/rpiplay.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/YenBe/Documents/git/WinAirPlay/build/MinSizeRel/rpiplay.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -216,7 +215,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -232,10 +231,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAS_GSTREAMER_RENDERER;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Program Files\OpenSSL-Win64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -243,13 +242,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>renderers\RelWithDebInfo\renderers.lib;lib\RelWithDebInfo\airplay.lib;C:\gstreamer\1.0\msvc_x86\lib\gobject-2.0.lib;C:\gstreamer\1.0\msvc_x86\lib\gstapp-1.0.lib;C:\gstreamer\1.0\msvc_x86\lib\glib-2.0.lib;C:\gstreamer\1.0\msvc_x86\lib\gstreamer-1.0.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MD.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MD.lib;lib\playfair\RelWithDebInfo\playfair.lib;lib\llhttp\RelWithDebInfo\llhttp.lib;lib\plist\RelWithDebInfo\plist-2.0.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>renderers\RelWithDebInfo\renderers.lib;lib\RelWithDebInfo\airplay.lib;renderers\fdk-aac\RelWithDebInfo\fdk-aac.lib;mf.lib;mfplat.lib;mfuuid.lib;mfreadwrite.lib;mfplay.lib;wmcodecdspuuid.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gobject-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstapp-1.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\glib-2.0.lib;C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libssl64MD.lib;C:\Program Files\OpenSSL-Win64\lib\VC\libcrypto64MD.lib;lib\playfair\RelWithDebInfo\playfair.lib;lib\llhttp\RelWithDebInfo\llhttp.lib;lib\plist\RelWithDebInfo\plist-2.0.lib;ws2_32.lib;lib\aac_decoder\RelWithDebInfo\aac_decoder.lib;lib\fdkaac_decoder\RelWithDebInfo\fdkaac_decoder.lib;lib\h264_decoder\RelWithDebInfo\h264_decoder.lib;lib\pthreads\RelWithDebInfo\pthreads.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/YenBe/Documents/git/RPiPlay_windows/build/RelWithDebInfo/rpiplay.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/YenBe/Documents/git/RPiPlay_windows/build/RelWithDebInfo/rpiplay.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/YenBe/Documents/git/WinAirPlay/build/RelWithDebInfo/rpiplay.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/YenBe/Documents/git/WinAirPlay/build/RelWithDebInfo/rpiplay.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -257,38 +256,112 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\ZERO_CHECK.vcxproj">
-      <Project>{C12589E6-7E1D-362B-AB78-5BE1675F525D}</Project>
+    <CustomBuild Include="C:\Users\YenBe\Documents\git\WinAirPlay\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeCCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeCXXCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeRCCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeCCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeCXXCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeRCCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeCCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeCXXCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeRCCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.19\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeCCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeCXXCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeRCCompiler.cmake;C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\3.19.6\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\rpiplay.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\ZERO_CHECK.vcxproj">
+      <Project>{A28C16D8-DD33-3753-95DA-98C0EDD1EC23}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\airplay.vcxproj">
-      <Project>{F0860FCA-9CAD-3860-82A3-8D852BC50D88}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\aac_decoder\aac_decoder.vcxproj">
+      <Project>{13D74DFD-A86D-3905-9CD5-EC1C0D5C0FD4}</Project>
+      <Name>aac_decoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\airplay.vcxproj">
+      <Project>{1AD99C28-EBC2-358B-BCCB-43A4D3106401}</Project>
       <Name>airplay</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\llhttp\llhttp.vcxproj">
-      <Project>{FA60948F-1170-3B81-8E8B-F01E321BDB9A}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\renderers\fdk-aac\fdk-aac.vcxproj">
+      <Project>{477E38EE-E20C-3B49-BF82-A2CABA552878}</Project>
+      <Name>fdk-aac</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\fdkaac_decoder\fdkaac_decoder.vcxproj">
+      <Project>{8EEFFE9B-6103-3890-BA1E-59B2AD8A9207}</Project>
+      <Name>fdkaac_decoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\h264_decoder\h264_decoder.vcxproj">
+      <Project>{39380AC4-4A0E-3337-9AF7-3FC3861020E9}</Project>
+      <Name>h264_decoder</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\llhttp.vcxproj">
+      <Project>{04426175-204E-3A71-AEE4-E77D4F7A387D}</Project>
       <Name>llhttp</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\playfair\playfair.vcxproj">
-      <Project>{667A029B-D592-3FE5-90D8-4D2E79645D7B}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\playfair\playfair.vcxproj">
+      <Project>{CF2BFF40-2C2B-3C30-A847-7840AEB52EFA}</Project>
       <Name>playfair</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\plist\plist.vcxproj">
-      <Project>{CC0F16A5-2A6D-3F01-B795-6F06C9C75A4C}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\plist\plist.vcxproj">
+      <Project>{47B3F654-E46B-3413-8869-09406EEF0D8A}</Project>
       <Name>plist</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\renderers\renderers.vcxproj">
-      <Project>{8BB7F1CB-E9C0-3585-B03A-B1EC3126EBEB}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\pthreads\pthreads.vcxproj">
+      <Project>{57E0A215-A58C-3D2B-9B66-CF1088668CA8}</Project>
+      <Name>pthreads</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\renderers\renderers.vcxproj">
+      <Project>{73DBFBDC-8311-3F70-BE7B-524A3518CE07}</Project>
       <Name>renderers</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\rpiplay.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

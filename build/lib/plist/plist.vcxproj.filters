@@ -1,102 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\src\base64.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\src\base64.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\src\bytearray.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\src\bytearray.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\src\hashtable.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\src\hashtable.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\src\ptrarray.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\src\ptrarray.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\src\time64.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\src\time64.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\src\xplist.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\src\xplist.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\src\bplist.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\src\bplist.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\src\plist.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\src\plist.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\libcnary\cnary.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\libcnary\cnary.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\libcnary\node.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\libcnary\node.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\libcnary\node_list.c">
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\libcnary\node_list.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Array.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Boolean.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Boolean.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Data.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Date.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Dictionary.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Dictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Integer.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Integer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Key.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Key.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Node.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Real.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Real.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\String.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\String.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Structure.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Structure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\Uid.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\Uid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\plist++.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\plist++.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\include\plist\plist.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\include\plist\plist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\libcnary\include\node.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\libcnary\include\node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\libcnary\include\node_list.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\libcnary\include\node_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\plist\libcnary\include\object.h">
+    <ClInclude Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\libcnary\include\object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\plist\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{11ACD1A9-9A9D-39F1-B132-59C2AB1111EF}</UniqueIdentifier>
+      <UniqueIdentifier>{62BA43C0-8270-3F37-B2BD-AA97837023AA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{D15DEA82-83E8-34E5-B714-8F71BE7A1AA3}</UniqueIdentifier>
+      <UniqueIdentifier>{59538DBF-E533-37F3-87D7-600CFDBD14F9}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\..\lib\plist\CMakeLists.txt" />
   </ItemGroup>
 </Project>

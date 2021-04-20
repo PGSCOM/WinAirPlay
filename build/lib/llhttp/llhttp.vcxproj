@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FA60948F-1170-3B81-8E8B-F01E321BDB9A}</ProjectGuid>
+    <ProjectGuid>{04426175-204E-3A71-AEE4-E77D4F7A387D}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
@@ -59,26 +59,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)out\llhttp\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">llhttp.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">llhttp</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\llhttp\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">llhttp.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">llhttp</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\llhttp\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">llhttp.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">llhttp</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\llhttp\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">llhttp.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">llhttp</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\llhttp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -95,10 +95,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -111,7 +111,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -128,10 +128,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -161,10 +161,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -177,7 +177,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>
@@ -193,10 +193,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\YenBe\Documents\git\WinAirPlay\lib\pthreads;C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -208,11 +208,11 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\CMakeLists.txt">
       <StdOutEncoding>UTF-8</StdOutEncoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/llhttp/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/lib/llhttp/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/RPiPlay_windows -BC:/Users/YenBe/Documents/git/RPiPlay_windows/build --check-stamp-file C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/llhttp/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/llhttp/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -221,11 +221,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\llhttp\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/llhttp/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/lib/llhttp/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/RPiPlay_windows -BC:/Users/YenBe/Documents/git/RPiPlay_windows/build --check-stamp-file C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/llhttp/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/llhttp/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,11 +234,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\llhttp\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/llhttp/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/lib/llhttp/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/RPiPlay_windows -BC:/Users/YenBe/Documents/git/RPiPlay_windows/build --check-stamp-file C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/llhttp/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/llhttp/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -247,11 +247,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\llhttp\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/RPiPlay_windows/lib/llhttp/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/YenBe/Documents/git/WinAirPlay/lib/llhttp/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/RPiPlay_windows -BC:/Users/YenBe/Documents/git/RPiPlay_windows/build --check-stamp-file C:/Users/YenBe/Documents/git/RPiPlay_windows/build/lib/llhttp/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/YenBe/Documents/git/WinAirPlay -BC:/Users/YenBe/Documents/git/WinAirPlay/build --check-stamp-file C:/Users/YenBe/Documents/git/WinAirPlay/build/lib/llhttp/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -260,18 +260,18 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\RPiPlay_windows\build\lib\llhttp\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\YenBe\Documents\git\WinAirPlay\build\lib\llhttp\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\api.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\http.c" />
-    <ClCompile Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\lib\llhttp\llhttp.c" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\api.c" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\http.c" />
+    <ClCompile Include="C:\Users\YenBe\Documents\git\WinAirPlay\lib\llhttp\llhttp.c" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\YenBe\Documents\git\RPiPlay_windows\build\ZERO_CHECK.vcxproj">
-      <Project>{C12589E6-7E1D-362B-AB78-5BE1675F525D}</Project>
+    <ProjectReference Include="C:\Users\YenBe\Documents\git\WinAirPlay\build\ZERO_CHECK.vcxproj">
+      <Project>{A28C16D8-DD33-3753-95DA-98C0EDD1EC23}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
