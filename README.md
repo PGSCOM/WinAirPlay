@@ -1,9 +1,13 @@
-Modify from [RPiPlay](https://github.com/FD-/RPiPlay), [WinRTC decoder](https://github.com/microsoft/winrtc/tree/master/patches_for_WebRTC_org/m84/src/modules/video_coding/codecs/h264/win/decoder) and [OWT WebRTC](https://github.com/open-webrtc-toolkit/owt-deps-webrtc/tree/83-sdk/common_video)
+Modify from [RPiPlay](https://github.com/FD-/RPiPlay), [WinRTC decoder](https://github.com/microsoft/winrtc/tree/master/patches_for_WebRTC_org/m84/src/modules/video_coding/codecs/h264/win/decoder) and [OWT WebRTC](https://github.com/open-webrtc-toolkit/owt-deps-webrtc/tree/83-sdk/common_video).
+
+The project will finally dump media foundation hardware decoded H264Output.yuv and fdk-aac software decoded AAC-EldOutput.pcm.
+
+<img width="447" src="cast.jpg">
 
 # Contribution
 * Porting RpiPlay from Raspberry Pi to Windows 10
 * Integrate Media Funcation from [WinRTC](https://github.com/microsoft/winrtc/tree/master/patches_for_WebRTC_org/m84/src/modules/video_coding/codecs/h264/win) to WinAirPlay
-* Modularize h264_decoder(media foundation), aac_decoder(media foundation) and fdk-aac static lib
+* Modularize h264_decoder(media foundation), aac_decoder(media foundation) and fdk-aac decoder static lib
 
 # Introduction
 An open-source implementation of an AirPlay mirroring server for Windows.
