@@ -39,6 +39,8 @@ jobs:
       uses: ilammy/msvc-dev-cmd@v1
 
     - name: Configure CMake
+      env:
+        VCPKG_ROOT: ${{ runner.temporary }}/vcpkg
       # Configura el proyecto CMake usando el toolchain de vcpkg
       # -B build: Directorio de build
       # -S .: Directorio del código fuente
