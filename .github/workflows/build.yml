@@ -1,0 +1,69 @@
+name: Build and Upload Artifact
+
+on:
+  push:
+    branches: [ main, master ] # Se activa en push a main o master
+  pull_request:
+    branches: [ main, master ] # También se activa en pull requests a main o master
+
+jobs:
+  build:
+    runs-on: windows-latest # Usar el runner más reciente de Windows
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      # Asegúrate de incluir submódulos si hay dependencias como fdk-aac en ellos
+      with:
+        submodules: 'recursive'
+
+    - name: Setup vcpkg (C++ Package Manager)
+      uses: lukka/run-vcpkg@v11
+      with:
+        # Instala vcpkg en un directorio temporal
+        vcpkgDirectory: ${{ runner.temporary }}/vcpkg
+        # Opcional: Fija una versión específica de vcpkg para builds consistentes
+        # vcpkgGitCommitId: '<some-commit-hash>'
+
+    - name: Install dependencies using vcpkg
+      uses: lukka/run-vcpkg@v11
+      with:
+        vcpkgDirectory: ${{ runner.temporary }}/vcpkg
+        # Asegúrate de que el triplet coincida con la arquitectura de tu build (x64)
+        vcpkgTriplet: x64-windows
+        # Lista las dependencias que CMake necesita encontrar (basado en find_package)
+        vcpkgArguments: openssl pthreads # pthreads es manejado por vcpkg como pthreads4w
+
+    - name: Set up Developer Command Prompt for MSVC
+      # Esta acción configura el entorno de MSVC necesario para CMake y la compilación
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Configure CMake
+      # Configura el proyecto CMake usando el toolchain de vcpkg
+      # -B build: Directorio de build
+      # -S .: Directorio del código fuente
+      # -DCMAKE_TOOLCHAIN_FILE: Le dice a CMake cómo encontrar las dependencias de vcpkg
+      run: |
+        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${{ runner.temporary }}/vcpkg/scripts/buildsystems/vcpkg.cmake
+
+    - name: Build project
+      # Compila el proyecto usando CMake en modo Release
+      # CMake invocará a MSBuild (o el generador configurado)
+      run: |
+        cmake --build build --config Release
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        # Nombre del artifact que aparecerá en GitHub
+        name: rpiplay-windows-build
+        # Ruta al archivo o directorio a subir
+        # Ajusta esto si el ejecutable o los archivos necesarios están en otro lugar
+        path: |
+          build/Release/rpiplay.exe
+          # Si necesitas incluir DLLs que no se enlazan estáticamente, añádelas aquí:
+          # build/Release/*.dll
+          # build/Release/libcrypto-*.dll  # Ejemplo para OpenSSL DLLs si son necesarias
+          # build/Release/libssl-*.dll     # Ejemplo para OpenSSL DLLs si son necesarias
+        # Opcional: cuánto tiempo mantener el artifact
+        retention-days: 7
