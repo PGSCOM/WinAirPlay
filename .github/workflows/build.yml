@@ -23,7 +23,7 @@ jobs:
         # Instala vcpkg en un directorio temporal
         vcpkgDirectory: ${{ runner.temporary }}/vcpkg
         # Opcional: Fija una versión específica de vcpkg para builds consistentes
-        # vcpkgGitCommitId: '<some-commit-hash>'
+        vcpkgGitCommitId: '96d5fb3de135b86d7222c53f2352ca92827a156b'
 
     - name: Install dependencies using vcpkg
       uses: lukka/run-vcpkg@v11

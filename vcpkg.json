@@ -1,0 +1,9 @@
+{
+  "name": "rpiplay",
+  "version-string": "1.0.0",
+  "dependencies": [
+    "openssl",
+    "pthreads" 
+  ],
+  "builtin-baseline": "PUT_A_RECENT_VCPKG_COMMIT_HASH_HERE" 
+}
