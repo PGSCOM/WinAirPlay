@@ -30,11 +30,9 @@ jobs:
       uses: ilammy/msvc-dev-cmd@v1
 
     - name: Configure CMake
-      # Usa la variable de entorno VCPKG_ROOT establecida por el paso anterior
-      # La sintaxis $env:VARNAME es para PowerShell, que es el shell por defecto en runners Windows
+      # No env: block needed here
       run: |
-        echo "VCPKG_ROOT is $env:VCPKG_ROOT" # Añadido para depuración
-        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
     - name: Build project
       run: |
