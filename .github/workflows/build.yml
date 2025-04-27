@@ -13,59 +13,42 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      # Asegúrate de incluir submódulos si hay dependencias como fdk-aac en ellos
       with:
         submodules: 'recursive'
 
-    - name: Setup vcpkg (C++ Package Manager)
+    # Combina setup e install en un solo paso
+    - name: Setup vcpkg and Install Dependencies
       uses: lukka/run-vcpkg@v11
+      id: setupvcpkg # Añade un ID para referenciar sus outputs si es necesario
       with:
-        # Instala vcpkg en un directorio temporal
-        vcpkgDirectory: ${{ runner.temporary }}/vcpkg
-        # Opcional: Fija una versión específica de vcpkg para builds consistentes
+        # Deja que la acción decida el directorio por defecto o usa uno fijo si prefieres
+        # vcpkgDirectory: ${{ runner.temporary }}/vcpkg # Podrías quitar esto y dejar que use D:\vcpkg si eso es lo que prefiere
+        # Fija la versión de vcpkg
         vcpkgGitCommitId: '96d5fb3de135b86d7222c53f2352ca92827a156b'
-
-    - name: Install dependencies using vcpkg
-      uses: lukka/run-vcpkg@v11
-      with:
-        vcpkgDirectory: ${{ runner.temporary }}/vcpkg
-        # Asegúrate de que el triplet coincida con la arquitectura de tu build (x64)
+        # Lista las dependencias a instalar
+        vcpkgArguments: openssl pthreads
+        # Especifica el triplet
         vcpkgTriplet: x64-windows
-        # Lista las dependencias que CMake necesita encontrar (basado en find_package)
-        vcpkgArguments: openssl pthreads # pthreads es manejado por vcpkg como pthreads4w
+        # La acción debería detectar vcpkgArguments y ejecutar la instalación
 
     - name: Set up Developer Command Prompt for MSVC
-      # Esta acción configura el entorno de MSVC necesario para CMake y la compilación
       uses: ilammy/msvc-dev-cmd@v1
 
     - name: Configure CMake
-      env:
-        VCPKG_ROOT: ${{ runner.temporary }}/vcpkg
-      # Configura el proyecto CMake usando el toolchain de vcpkg
-      # -B build: Directorio de build
-      # -S .: Directorio del código fuente
-      # -DCMAKE_TOOLCHAIN_FILE: Le dice a CMake cómo encontrar las dependencias de vcpkg
+      # Usa la variable de entorno VCPKG_ROOT establecida por el paso anterior
+      # La sintaxis $env:VARNAME es para PowerShell, que es el shell por defecto en runners Windows
       run: |
-        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${{ runner.temporary }}/vcpkg/scripts/buildsystems/vcpkg.cmake
+        echo "VCPKG_ROOT is $env:VCPKG_ROOT" # Añadido para depuración
+        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
 
     - name: Build project
-      # Compila el proyecto usando CMake en modo Release
-      # CMake invocará a MSBuild (o el generador configurado)
       run: |
         cmake --build build --config Release
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
-        # Nombre del artifact que aparecerá en GitHub
         name: rpiplay-windows-build
-        # Ruta al archivo o directorio a subir
-        # Ajusta esto si el ejecutable o los archivos necesarios están en otro lugar
         path: |
           build/Release/rpiplay.exe
-          # Si necesitas incluir DLLs que no se enlazan estáticamente, añádelas aquí:
-          # build/Release/*.dll
-          # build/Release/libcrypto-*.dll  # Ejemplo para OpenSSL DLLs si son necesarias
-          # build/Release/libssl-*.dll     # Ejemplo para OpenSSL DLLs si son necesarias
-        # Opcional: cuánto tiempo mantener el artifact
         retention-days: 7
