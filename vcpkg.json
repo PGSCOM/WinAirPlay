@@ -5,5 +5,5 @@
     "openssl",
     "pthreads" 
   ],
-  "builtin-baseline": "PUT_A_RECENT_VCPKG_COMMIT_HASH_HERE" 
+  "builtin-baseline": "96d5fb3de135b86d7222c53f2352ca92827a156b" 
 }
