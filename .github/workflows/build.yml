@@ -19,17 +19,12 @@ jobs:
     # Combina setup e install en un solo paso
     - name: Setup vcpkg and Install Dependencies
       uses: lukka/run-vcpkg@v11
-      id: setupvcpkg # Añade un ID para referenciar sus outputs si es necesario
+      id: setupvcpkg # Mantiene el ID si lo necesitas
       with:
-        # Deja que la acción decida el directorio por defecto o usa uno fijo si prefieres
-        # vcpkgDirectory: ${{ runner.temporary }}/vcpkg # Podrías quitar esto y dejar que use D:\vcpkg si eso es lo que prefiere
-        # Fija la versión de vcpkg
         vcpkgGitCommitId: '96d5fb3de135b86d7222c53f2352ca92827a156b'
-        # Lista las dependencias a instalar
-        vcpkgArguments: openssl pthreads
-        # Especifica el triplet
+        # Añade gstreamer y gst-plugins-base a la lista
+        vcpkgArguments: openssl pthreads gstreamer gst-plugins-base
         vcpkgTriplet: x64-windows
-        # La acción debería detectar vcpkgArguments y ejecutar la instalación
 
     - name: Set up Developer Command Prompt for MSVC
       uses: ilammy/msvc-dev-cmd@v1
